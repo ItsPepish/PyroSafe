@@ -32,18 +32,6 @@ class ReportFactory extends Factory {
         ];
     }
 
-    public function highUrgency(): static {
-        return $this->state(fn (array $attributes) => [
-            'urgency' => ReportUrgency::High,
-        ]);
-    }
-
-    public function attended(): static {
-        return $this->state(fn (array $attributes) => [
-            'status' => ReportStatus::Attended,
-        ]);
-    }
-
     public function withImages(int $count = 2): static {
         return $this->afterCreating(function (Report $report) use ($count): void {
             Image::factory()
