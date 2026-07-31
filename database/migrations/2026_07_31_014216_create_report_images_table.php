@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
     public function up(): void {
-        Schema::create('report_images', function (Blueprint $table) {
+        Schema::create('image_report', function (Blueprint $table) {
             $table->id();
             $table->foreignId('report_id')
                 ->constrained('reports')
@@ -20,6 +20,6 @@ return new class extends Migration {
     }
 
     public function down(): void {
-        Schema::dropIfExists('report_images');
+        Schema::dropIfExists('image_report');
     }
 };
