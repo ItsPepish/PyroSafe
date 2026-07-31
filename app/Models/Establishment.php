@@ -14,7 +14,11 @@ class Establishment extends Model {
         return [
             'latitude' => 'decimal:7',
             'longitude' => 'decimal:7',
-            'is_visible' => 'boolean'
+            'is_visible' => 'boolean',
         ];
     }
+
+    protected $attributes = [
+        'is_visible' => true
+    ];
 }

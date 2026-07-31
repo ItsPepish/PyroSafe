@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+use App\Enums\ReportStatus;
+use App\Enums\ReportType;
+use App\Enums\ReportUrgency;
+
 #[Fillable(['type', 'description', 'urgency', 'address_reference', 'latitude', 'longitude'])]
 class Report extends Model {
     use HasFactory;
@@ -18,8 +22,15 @@ class Report extends Model {
 
     protected function casts(): array {
         return [
+            'type' => ReportType::class,
+            'urgency' => ReportUrgency::class,
             'latitude' => 'decimal:7',
-            'longitude' => 'decimal:7'
+            'longitude' => 'decimal:7',
+            'status' => ReportStatus::class,
         ];
     }
+
+    protected $attributes = [
+        'status' => ReportStatus::Pending->value,
+    ];
 }

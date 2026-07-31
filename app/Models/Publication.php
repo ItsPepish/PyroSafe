@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+use App\Enums\PublicationStatus;
+
 #[Fillable(['category_id', 'cover_image_id', 'title', 'slug', 'summary', 'content', 'status', 'published_at'])]
 class Publication extends Model {
     use HasFactory;
@@ -27,12 +29,17 @@ class Publication extends Model {
     public function images(): BelongsToMany {
         return $this->belongsToMany(Image::class)
             ->withPivot('position')
-            ->withTimestamps();;
+            ->withTimestamps();
     }
 
     protected function casts(): array {
         return [
-            'published_at' => 'datetime'
+            'published_at' => 'datetime',
+            'status' => PublicationStatus::class,
         ];
     }
+
+    protected $attributes = [
+        'status' => PublicationStatus::Draft->value
+    ];
 }
