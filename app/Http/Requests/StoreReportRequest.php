@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Http\Requests;
+
+use App\Enums\ReportType;
+use App\Enums\ReportUrgency;
+use Illuminate\Validation\Rule;
+use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Foundation\Http\FormRequest;
+
+class StoreReportRequest extends FormRequest {
+    public function authorize(): bool {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, ValidationRule|array<mixed>|string>
+     */
+    public function rules(): array {
+        return [
+            'type' => ['required', Rule::enum(ReportType::class)],
+            'description' => ['required', 'string', 'min:20', 'max:5000'],
+            'urgency' => ['required', Rule::enum(ReportUrgency::class)],
+            'address_reference' => ['required', 'string', 'max:255'],
+            'latitude' => ['required', 'numeric', 'between:14,33'],
+            'longitude' => ['required', 'numeric', 'between:-118,-86'],
+            'images' => ['nullable', 'array', 'max:5'],
+            'images.*' => ['image', 'mimes:jpg,jpeg,png,webp', 'max:10240']
+
+        ];
+    }
+}
