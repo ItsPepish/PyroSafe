@@ -2,7 +2,7 @@
 
 @section('content')
     
-    <!-- Primer Seccion -->
+    <!-- Hero -->
     <section class="relative h-screen w-full overflow-hidden">
         <img src="{{ Vite::asset('resources/images/tultepec02.webp') }}" alt="" class="absolute inset-0 h-full w-full object-cover">
         <div class="absolute inset-0 bg-black/60"></div>
@@ -15,7 +15,9 @@
             </div>
         </div>
     </section>
+    <!-- Hero -->
 
+    <!-- Primer Seccion -->
     <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 flex flex-col gap-10">
         <div class="max-w-2xl">
             <h2 class="text-3xl font-semibold">Todo en un solo lugar</h2>
@@ -25,9 +27,9 @@
             <div class="rounded-2xl border border-gray-300/50 shadow-sm relative flex flex-col gap-4 p-6 transition-all hover:-translate-y-1 hover:shadow-md">
                 <span class="grid size-12 place-items-center rounded-xl bg-sky-200">
                     <svg width="24px" height="24px" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11 3.99995C12.8839 2.91716 14.9355 2.15669 17.07 1.74995C17.551 1.63467 18.0523 1.63283 18.5341 1.74458C19.016 1.85632 19.4652 2.07852 19.8464 2.39375C20.2276 2.70897 20.5303 3.10856 20.7305 3.56086C20.9307 4.01316 21.0229 4.50585 21 4.99995V13.9999C20.9699 15.117 20.5666 16.1917 19.8542 17.0527C19.1419 17.9136 18.1617 18.5112 17.07 18.7499C14.9355 19.1567 12.8839 19.9172 11 20.9999" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M10.9995 3.99995C9.1156 2.91716 7.06409 2.15669 4.92957 1.74995C4.44856 1.63467 3.94731 1.63283 3.46546 1.74458C2.98362 1.85632 2.53439 2.07852 2.15321 2.39375C1.77203 2.70897 1.46933 3.10856 1.26911 3.56086C1.0689 4.01316 0.976598 4.50585 0.999521 4.99995V13.9999C1.0296 15.117 1.433 16.1917 2.14533 17.0527C2.85767 17.9136 3.83793 18.5112 4.92957 18.7499C7.06409 19.1567 9.1156 19.9172 10.9995 20.9999" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M11 21V4" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11 3.99995C12.8839 2.91716 14.9355 2.15669 17.07 1.74995C17.551 1.63467 18.0523 1.63283 18.5341 1.74458C19.016 1.85632 19.4652 2.07852 19.8464 2.39375C20.2276 2.70897 20.5303 3.10856 20.7305 3.56086C20.9307 4.01316 21.0229 4.50585 21 4.99995V13.9999C20.9699 15.117 20.5666 16.1917 19.8542 17.0527C19.1419 17.9136 18.1617 18.5112 17.07 18.7499C14.9355 19.1567 12.8839 19.9172 11 20.9999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10.9995 3.99995C9.1156 2.91716 7.06409 2.15669 4.92957 1.74995C4.44856 1.63467 3.94731 1.63283 3.46546 1.74458C2.98362 1.85632 2.53439 2.07852 2.15321 2.39375C1.77203 2.70897 1.46933 3.10856 1.26911 3.56086C1.0689 4.01316 0.976598 4.50585 0.999521 4.99995V13.9999C1.0296 15.117 1.433 16.1917 2.14533 17.0527C2.85767 17.9136 3.83793 18.5112 4.92957 18.7499C7.06409 19.1567 9.1156 19.9172 10.9995 20.9999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11 21V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </span>
                 <div class="flex-1">
@@ -92,7 +94,7 @@
 
     <!-- Segunda Seccion -->
     <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 grid items-center gap-10  md:grid-cols-2">
-        <div class="relative aspect-4/3 overflow-hidden rounded-3xl border border-border shadow-sm">
+        <div class="relative aspect-4/3 overflow-hidden rounded-3xl border shadow-sm">
             <img src="{{ Vite::asset('resources/images/tultepec03.webp') }}" alt="" class="h-full w-full object-cover">
         </div>
         <div>
@@ -106,7 +108,7 @@
                         </svg>
                     </span>
                     <span>
-                        <span class="block text-sm font-semibold text-foreground">Distancia segura</span>
+                        <span class="block text-sm font-semibold">Distancia segura</span>
                         <span class="mt-0.5 block text-sm font-display">Mantén al menos 15 metros entre el público y el punto de quema.</span>
                     </span>
                 </li>
@@ -117,7 +119,7 @@
                         </svg>
                     </span>
                     <span>
-                        <span class="block text-sm font-semibold text-foreground">Nunca en interiores</span>
+                        <span class="block text-sm font-semibold">Nunca en interiores</span>
                         <span class="mt-0.5 block text-sm font-display">No enciendas ni almacenes pirotecnia dentro de viviendas.</span>
                     </span>
                 </li>
@@ -128,7 +130,7 @@
                         </svg>
                     </span>
                     <span>
-                        <span class="block text-sm font-semibold text-foreground">Supervisión adulta</span>
+                        <span class="block text-sm font-semibold">Supervisión adulta</span>
                         <span class="mt-0.5 block text-sm font-display">La manipulación siempre debe estar a cargo de personas adultas.</span>
                     </span>
                 </li>
@@ -139,7 +141,7 @@
                         </svg>
                     </span>
                     <span>
-                        <span class="block text-sm font-semibold text-foreground">Compra autorizada</span>
+                        <span class="block text-sm font-semibold">Compra autorizada</span>
                         <span class="mt-0.5 block text-sm font-display">Adquiere solo en establecimientos con permiso vigente.</span>
                     </span>
                 </li>
@@ -173,7 +175,7 @@
                 <p class="mt-2 flex-1 text-sm font-display">Recomendaciones básicas para preparar el entorno y reducir riesgos antes de cualquier evento pirotécnico.</p>
                 <a href="" class="text-sky-600 font-semibold inline-flex items-center gap-1.5">
                     Leer articulo
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-4 transition-transform hover:translate-x-0.5 hover:-translate-y-0.5" aria-hidden="true">
                         <path d="M7 7h10v10"></path>
                         <path d="M7 17 17 7"></path>
                     </svg>
@@ -195,7 +197,7 @@
                 <p class="mt-2 flex-1 text-sm font-display">Aprender a reconocer el etiquetado, los permisos y las señales de que un producto proviene de una fuente confiable.</p>
                 <a href="" class="text-sky-600 font-semibold inline-flex items-center gap-1.5">
                     Leer articulo
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-4 transition-transform hover:translate-x-0.5 hover:-translate-y-0.5" aria-hidden="true">
                         <path d="M7 7h10v10"></path>
                         <path d="M7 17 17 7"></path>
                     </svg>
@@ -217,7 +219,7 @@
                 <p class="mt-2 flex-1 text-sm font-display">Pasos inmediatos y seguros para atender una quemadura leve mientras llega ayuda profesional.</p>
                 <a href="" class="text-sky-600 font-semibold inline-flex items-center gap-1.5">
                     Leer articulo
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-4 transition-transform hover:translate-x-0.5 hover:-translate-y-0.5" aria-hidden="true">
                         <path d="M7 7h10v10"></path>
                         <path d="M7 17 17 7"></path>
                     </svg>

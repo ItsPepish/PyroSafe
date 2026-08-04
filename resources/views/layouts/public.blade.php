@@ -12,8 +12,8 @@
     <main>
         @yield('content')
     </main>
-    <footer>
 
-    </footer>
+    <x-public.footer/>
+
 </body>
 </html>
