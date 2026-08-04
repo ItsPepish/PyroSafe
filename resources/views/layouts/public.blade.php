@@ -7,10 +7,8 @@
     <title>PyroSafe - </title>
 </head>
 <body>
-    <header class="fixed top-0 left-0 w-full z-50 flex p-5 items-center justify-around border-b bg-white border-gray-200">
-        <x-public.header/>
+    <x-public.header/>
 
-    </header>
     <main>
         @yield('content')
     </main>
