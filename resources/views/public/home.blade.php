@@ -125,7 +125,7 @@
                     <div class="relative aspect-4/3 overflow-hidden rounded-t-lg">
                         <img src="{{ Vite::asset('resources/images/blog01.avif') }}" alt="" class="h-full w-full object-cover">
                     </div>
-                    <div class="flex flex-1 flex-col p-6 gap-4">
+                    <div class="flex flex-1 flex-col p-4 gap-4">
                         <div class="flex items-center justify-between gap-2">
                             <span class="inline-flex items-center gap-1 rounded-full border border-gray-600/40 px-2.5 py-0.5 text-xs font-medium transition-colors">Buenas prácticas</span>
                             <span class="inline-flex items-center gap-1 text-xs">
@@ -152,7 +152,7 @@
                     <div class="relative aspect-4/3 overflow-hidden rounded-t-lg">
                         <img src="{{ Vite::asset('resources/images/blog02.avif') }}" alt="" class="h-full w-full object-cover">
                     </div>
-                    <div class="flex flex-1 flex-col p-6 gap-4">
+                    <div class="flex flex-1 flex-col p-4 gap-4">
                         <div class="flex items-center justify-between gap-2">
                             <span class="inline-flex items-center gap-1 rounded-full border border-gray-600/40 px-2.5 py-0.5 text-xs font-medium transition-colors">Emergencias</span>
                             <span class="inline-flex items-center gap-1 text-xs">
@@ -179,7 +179,7 @@
                     <div class="relative aspect-4/3 overflow-hidden rounded-t-lg">
                         <img src="{{ Vite::asset('resources/images/blog03.avif') }}" alt="" class="h-full w-full object-cover">
                     </div>
-                    <div class="flex flex-1 flex-col p-6 gap-4">
+                    <div class="flex flex-1 flex-col p-4 gap-4">
                         <div class="flex items-center justify-between gap-2">
                             <span class="inline-flex items-center gap-1 rounded-full border border-gray-600/40 px-2.5 py-0.5  text-xs font-medium transition-colors">Prevención</span>
                             <span class="inline-flex items-center gap-1 text-xs">
@@ -192,7 +192,7 @@
                         </div>
                         <h3 class="text-lg font-semibold text-balance">Primeros auxilios ante quemaduras leves</h3>
                         <p class="flex-1 text-sm font-display">Pasos inmediatos y seguros para atender una quemadura leve mientras llega ayuda profesional.</p>
-                        <a href="" class="text-sky-600 font-semibold inline-flex items-center gap-1.5">
+                        <a href="" class="text-sky-600 font-semibold inline-flex items-center gap-1.5 ">
                             Leer articulo
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-4 transition-transform hover:translate-x-0.5 hover:-translate-y-0.5" aria-hidden="true">
                                 <path d="M7 7h10v10"></path>
@@ -223,7 +223,7 @@
                 </li>
                 @endforeach
             </ol>
-            <div class="flex flex-col items-start gap-4 rounded-3xl p-8 bg-blue-950 text-white sm:flex-row sm:items-center sm:justify-between ">
+            <div class="flex flex-col items-start gap-4 rounded-3xl p-8 bg-blue-950 text-white sm:flex-row sm:items-center sm:justify-between">
                 <div class="flex flex-col gap-4">
                     <h3 class="text-xl font-semibold">¿Detectaste una situación de riesgo?</h3>
                     <p class="text-sm font-display max-w-lg">Tu participación es clave. Reporta talleres clandestinos, almacenamiento irregular o cualquier situación de riesgo. Tu reporte puede salvar vidas.</p>
