@@ -59,4 +59,8 @@ class HomeController extends Controller
             'reportSteps' => $reportSteps,
         ]);
     }
+
+    public function info() {
+        return view('public.info');
+    }
 }

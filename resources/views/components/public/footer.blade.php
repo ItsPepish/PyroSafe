@@ -7,10 +7,10 @@
                 <div>
                     <h4 class="text-sm font-semibold">Plataforma</h4>
                     <ul class="font-display mt-3 space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-gray-600">Información Preventiva</a></li>
-                        <li><a href="#" class="hover:text-gray-600">Establecimientos</a></li>
-                        <li><a href="#" class="hover:text-gray-600">Reportar riesgo</a></li>
-                        <li><a href="#" class="hover:text-gray-600">Acerca de PyroSafe</a></li>
+                        <li><a href="/info" class="hover:text-gray-600">Información Preventiva</a></li>
+                        <li><a href="/establecimientos" class="hover:text-gray-600">Establecimientos</a></li>
+                        <li><a href="/reporte" class="hover:text-gray-600">Reportar riesgo</a></li>
+                        <li><a href="/acerca-de" class="hover:text-gray-600">Acerca de PyroSafe</a></li>
                     </ul>
                 </div>
                 <div>
