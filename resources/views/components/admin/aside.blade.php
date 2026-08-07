@@ -21,9 +21,12 @@
                 </button>
             </nav>
             <div class="border-t border-[#283b45] p-3">
-                <a href="/" class="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm text-[#dee6e9]/70 hover:bg-[#1b313d]/60 hover:text-[#dee6e9]" >
-                    <x-icons.logout/>
-                    Logout
-                </a>
+                <form action="{{ route('admin.logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-sm text-[#dee6e9]/70 hover:bg-[#1b313d]/60 hover:text-[#dee6e9]">
+                        <x-icons.logout/>
+                        Logout
+                    </button>
+                </form>
             </div>
         </aside>
