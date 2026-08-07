@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="bg-sky-600/50">
+    <section class="bg-sky-500/20">
         <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 flex flex-col gap-4">
             <h1 class="text-3xl font-semibold sm:text-4xl">Información preventiva</h1>
             <p>Artículos claros y breves sobre seguridad, buenas prácticas y prevención de accidentes con pirotecnia. Elige una categoría o busca por tema.</p>

@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class AdminAuthController extends Controller
+{
+    public function login() {
+        return view('admin.login');
+    }
+
+    public function authenticate(Request $request) {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+ 
+            return redirect()->intended('/admin');
+        }
+
+        return back()->withErrors([
+            'errorLogin' => 'Las credenciales no coinciden con nuestros registros.',
+        ])->onlyInput('email');
+    }
+
+    public function dashboard() {
+        return view('layouts.admin');
+    }
+}
