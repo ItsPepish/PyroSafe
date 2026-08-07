@@ -1,11 +1,11 @@
         <header class="sticky top-0 z-50 w-full bg-white border-b border-gray-300" >
             <div class="flex h-16 mx-auto max-w-6xl items-center justify-between px-4 sm:px-6">
-                <a href="/" class="font-semibold text-2xl">Pyro<span class="text-sky-500">Safe</span></a>
+                <a href="/" class="font-semibold text-2xl text-[#10222b]">Pyro<span class="text-[#0f7688]">Safe</span></a>
                 <nav class="hidden items-center text-gray-600 md:flex">
-                    <a href="/" class="hover:text-black hover:bg-blue-200 rounded-lg px-3 py-2 cursor-pointer transition-colors text-sm font-medium ">Inicio</a>
-                    <a href="/info" class="hover:text-black hover:bg-blue-200 rounded-lg px-3 py-2 cursor-pointer transition-colors text-sm font-medium ">Información Preventiva</a>
-                    <a href="/establecimientos" class="hover:text-black hover:bg-blue-200 rounded-lg px-3 py-2 cursor-pointer transition-colors text-sm font-medium">Establecimientos</a>
-                    <a href="/acerca-de" class="hover:text-black hover:bg-blue-200 rounded-lg px-3 py-2 cursor-pointer transition-colors text-sm font-medium">Acerca de</a>
+                    <a href="/" class="text-[#5e6b73] hover:bg-[#ecf3f5] hover:text-[#10222b] rounded-lg px-3 py-2 cursor-pointer transition-colors text-sm font-medium ">Inicio</a>
+                    <a href="/info" class="text-[#5e6b73] hover:bg-[#ecf3f5] hover:text-[#10222b] rounded-lg px-3 py-2 cursor-pointer transition-colors text-sm font-medium ">Información Preventiva</a>
+                    <a href="/establecimientos" class="text-[#5e6b73] hover:bg-[#ecf3f5] hover:text-[#10222b] rounded-lg px-3 py-2 cursor-pointer transition-colors text-sm font-medium">Establecimientos</a>
+                    <a href="/acerca-de" class="text-[#5e6b73] hover:bg-[#ecf3f5] hover:text-[#10222b] rounded-lg px-3 py-2 cursor-pointer transition-colors text-sm font-medium">Acerca de</a>
                 </nav>
                 <a href="/reporte" class="hidden md:flex text-white font-semibold bg-red-600 hover:bg-red-700 rounded-lg px-2 py-2 cursor-pointer transition-colors">Reportar riesgo</a>
                 <button type="button" data-mobile-menu-button aria-controls="mobile-menu" aria-expanded="false" class="inline-flex size-10 items-center justify-center rounded-lg md:hidden">

@@ -46,6 +46,7 @@
                             <path d="M2 12.0701H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M16 5L21.16 10C21.4324 10.2571 21.6494 10.567 21.7977 10.9109C21.946 11.2548 22.0226 11.6255 22.0226 12C22.0226 12.3745 21.946 12.7452 21.7977 13.0891C21.6494 13.433 21.4324 13.7429 21.16 14L16 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
+                        <span class="absolute inset-0" aria-hidden="true"></span>
                     </a>
                 </div>
                 @endforeach
@@ -55,7 +56,7 @@
     
     <section class="bg-sky-200/20 border-b border-gray-300">
         <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 grid items-center gap-10  md:grid-cols-2">
-            <div class="relative aspect-4/3 overflow-hidden rounded-3xl border shadow-sm">
+            <div class="relative aspect-4/3 overflow-hidden rounded-3xl border border-[#d6e0e4] shadow-sm">
                 <img src="{{ Vite::asset('resources/images/tultepec03.webp') }}" alt="" class="h-full w-full object-cover">
             </div>
             <div>
@@ -144,6 +145,7 @@
                                 <path d="M7 7h10v10"></path>
                                 <path d="M7 17 17 7"></path>
                             </svg>
+                            <span class="absolute inset-0" aria-hidden="true"></span>
                         </a>
                     </div>
                 </div>
@@ -171,6 +173,7 @@
                                 <path d="M7 7h10v10"></path>
                                 <path d="M7 17 17 7"></path>
                             </svg>
+                            <span class="absolute inset-0" aria-hidden="true"></span>
                         </a>
                     </div>
                 </div>
@@ -198,6 +201,7 @@
                                 <path d="M7 7h10v10"></path>
                                 <path d="M7 17 17 7"></path>
                             </svg>
+                            <span class="absolute inset-0" aria-hidden="true"></span>
                         </a>
                     </div>
                 </div>
