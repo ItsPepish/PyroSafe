@@ -20,7 +20,7 @@
                 <label for="password" class="font-semibold">Contraseña</label>
                 <input type="password" name="password" id="password" autocomplete="current-password" placeholder="ejemplo123" required class="border rounded-md px-2 py-1 border-[#283b45] bg-[#10222b] text-[#dee6e9]">
                 @error('errorLogin')
-                <p>{{ $message }}</p>
+                <p class="text-red-500 font-semibold text-center">{{ $message }}</p>
                 @enderror
                 <button type="submit" class="bg-sky-500 hover:bg-sky-600 transition-colors text-white rounded-2xl py-2 cursor-pointer mt-4 font-medium">Ingresar al panel</button>
             </form>
