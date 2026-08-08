@@ -12,7 +12,9 @@ class AdminPublicationController extends Controller
 {
     public function index()
     {
-        $publications = Publication::with(['category', 'user', 'coverImage'])->latest()->paginate(10);
+        $publications = Publication::with(['category', 'user', 'coverImage'])
+            ->latest()
+            ->paginate(4);
 
         return view('admin.publications.index', [
             'publications' => $publications,
