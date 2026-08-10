@@ -129,13 +129,13 @@
                     </div>
                     <div class="flex flex-1 flex-col p-4 gap-4">
                         <div class="flex items-center justify-between gap-2">
-                            <span class="inline-flex items-center gap-1 rounded-full border border-gray-600/40 px-2.5 py-0.5 text-xs font-medium transition-colors">Buenas prácticas</span>
+                            <span class="inline-flex items-center gap-1 rounded-full border border-gray-600/40 px-2.5 py-0.5 text-xs font-medium transition-colors">{{ $publication->category->name }}</span>
                             <span class="inline-flex items-center gap-1 text-xs">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock size-3.5" aria-hidden="true">
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <path d="M12 6v6l4 2"></path>
                                 </svg>
-                                4 mins
+                                {{ $publication->published_at->format('d/m/Y') }}
                             </span>
                         </div>
                         <h3 class="text-lg font-semibold text-balance">{{ $publication->title }}</h3>
