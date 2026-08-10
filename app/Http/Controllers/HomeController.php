@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\PublicationStatus;
+use App\Models\Publication;
+
 class HomeController extends Controller
 {
     public function index()
@@ -54,9 +57,17 @@ class HomeController extends Controller
             ],
         ];
 
+        $publications = Publication::where('status', PublicationStatus::Published->value)
+            ->where('published_at', '<=', now())
+            ->with(['category', 'coverImage'])
+            ->latest('published_at')
+            ->limit(3)
+            ->get();
+
         return view('public.home', [
             'features' => $features,
             'reportSteps' => $reportSteps,
+            'publications' => $publications
         ]);
     }
 }

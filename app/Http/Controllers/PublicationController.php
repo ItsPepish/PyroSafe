@@ -23,9 +23,18 @@ class PublicationController extends Controller
         abort_if(($publication->status !== PublicationStatus::Published) || ($publication->published_at->isFuture()), 404);
 
         $publication->load('category', 'coverImage');
+
+        $relatedPublications = Publication::where('status', PublicationStatus::Published->value)
+            ->where('published_at', '<=', now())
+            ->whereKeyNot($publication->id)
+            ->with(['category', 'coverImage'])
+            ->latest('published_at')
+            ->limit(3)
+            ->get();
         
         return view('public.publication', [
-            'publication' => $publication
+            'publication' => $publication,
+            'relatedPublications' => $relatedPublications
         ]);
     }
 }

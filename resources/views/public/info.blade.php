@@ -46,4 +46,10 @@
             {{ $publications->links() }}
         </div>
     </section>
+    
+    <section>
+        <div class="mx-auto max-w-6xl">
+        
+        </div>
+    </section>
 @endsection
