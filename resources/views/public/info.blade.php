@@ -30,7 +30,7 @@
                         </div>
                         <h3 class="text-lg font-semibold text-balance">{{ $publication->title }}</h3>
                         <p class="flex-1 text-sm font-display">{{ $publication->summary }}</p>
-                        <a href="" class="text-sky-600 font-semibold inline-flex items-center gap-1.5">
+                        <a href="{{ route('publications.show', $publication) }}" class="text-sky-600 font-semibold inline-flex items-center gap-1.5">
                             Leer articulo
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-4 transition-transform hover:translate-x-0.5 hover:-translate-y-0.5" aria-hidden="true">
                                 <path d="M7 7h10v10"></path>

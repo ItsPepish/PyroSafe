@@ -18,4 +18,14 @@ class PublicationController extends Controller
             'publications' => $publications
         ]);
     }
+
+    public function show(Publication $publication) {
+        abort_if(($publication->status !== PublicationStatus::Published) || ($publication->published_at->isFuture()), 404);
+
+        $publication->load('category', 'coverImage');
+        
+        return view('public.publication', [
+            'publication' => $publication
+        ]);
+    }
 }
