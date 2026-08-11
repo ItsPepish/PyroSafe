@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Actions\CreatePublicationAction;
+use App\Actions\DeletePublicationAction;
 use App\Actions\UpdatePublicationAction;
 use App\Enums\PublicationStatus;
 use App\Http\Requests\StorePublicationRequest;
@@ -58,10 +59,18 @@ class AdminPublicationController extends Controller
     }
 
     public function update(UpdatePublicationRequest $request, Publication $publication, UpdatePublicationAction $updatePublication) {
-         $updatePublication->execute($publication, $request->validated());
+        $updatePublication->execute($publication, $request->validated());
 
         return redirect()
             ->route('admin.publications.index')
             ->with('success', 'Publicación editada correctamente');
+    }
+
+    public function destroy(Publication $publication, DeletePublicationAction $deletePublication) {
+        $deletePublication->execute($publication);
+
+        return redirect()
+            ->route('admin.publications.index')
+            ->with('success', 'Publicación eliminada correctamente');
     }
 }

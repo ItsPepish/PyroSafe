@@ -45,16 +45,20 @@
                                     </svg>
                                     Editar
                                 </a>
-                                <a href="#" class="inline-flex items-center gap-1 text-sm font-medium text-[#df1b27] transition-colors hover:text-[#b3141e]">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2 size-3.5" aria-hidden="true">
-                                        <path d="M3 6h18"></path>
-                                        <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
-                                        <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
-                                        <line x1="10" x2="10" y1="11" y2="17"></line>
-                                        <line x1="14" x2="14" y1="11" y2="17"></line>
-                                    </svg>
-                                    Eliminar
-                                </a>
+                                <form action="{{ route('admin.publications.destroy', $publication) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="cursor-pointer inline-flex items-center gap-1 text-sm font-medium text-[#df1b27] transition-colors hover:text-[#b3141e]">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2 size-3.5" aria-hidden="true">
+                                            <path d="M3 6h18"></path>
+                                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                                            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                                            <line x1="10" x2="10" y1="11" y2="17"></line>
+                                            <line x1="14" x2="14" y1="11" y2="17"></line>
+                                        </svg>
+                                        Eliminar
+                                    </button>
+                                </form>
                             </div>
                         </td>
                     </tr>
