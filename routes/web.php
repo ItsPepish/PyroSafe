@@ -20,3 +20,6 @@ Route::get('/admin', [AdminAuthController::class, 'dashboard'])->middleware('aut
 Route::get('/admin/publications', [AdminPublicationController::class, 'index'])->middleware('auth')->name('admin.publications.index');
 Route::get('/admin/publications/create', [AdminPublicationController::class, 'create'])->middleware('auth')->name('admin.publications.create');
 Route::post('/admin/publications', [AdminPublicationController::class, 'store'])->middleware('auth')->name('admin.publications.store');
+Route::get('/admin/publications/{publication}/edit', [AdminPublicationController::class, 'edit'])->middleware('auth')->name('admin.publications.edit');
+Route::patch('/admin/publications/{publication}', [AdminPublicationController::class, 'update'])->middleware('auth')->name('admin.publications.update');
+Route::delete('/admin/publications/{publication}', [AdminPublicationController::class, 'destroy'])->middleware('auth')->name('admin.publications.destroy');

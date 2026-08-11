@@ -123,7 +123,7 @@
             </div>
             <div class="grid gap-5 md:grid-cols-3">
                 @foreach($publications as $publication)
-                <div class="flex flex-col h-full rounded-2xl border border-gray-300/50 shadow-sm relative transition-all hover:-translate-y-1 hover:shadow-md">
+                <div class="group flex flex-col h-full rounded-2xl border border-gray-300/50 shadow-sm relative transition-all hover:-translate-y-1 hover:shadow-md">
                     <div class="relative aspect-4/3 overflow-hidden rounded-t-lg">
                         <img src="{{ Storage::url($publication->coverImage->path) }}" alt="" class="h-full w-full object-cover">
                     </div>
@@ -142,7 +142,7 @@
                         <p class="flex-1 text-sm font-display">{{ $publication->summary }}</p>
                         <a href="{{ route('publications.show', $publication) }}" class="text-sky-600 font-semibold inline-flex items-center gap-1.5">
                             Leer articulo
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-4 transition-transform hover:translate-x-0.5 hover:-translate-y-0.5" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">
                                 <path d="M7 7h10v10"></path>
                                 <path d="M7 17 17 7"></path>
                             </svg>

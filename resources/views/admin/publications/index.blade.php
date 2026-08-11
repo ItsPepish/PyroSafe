@@ -38,8 +38,23 @@
                         <td class="px-5 py-4">{{ $publication->updated_at->format('d/m/Y H:i') }}</td>
                         <td class="px-5 py-4">
                             <div class="flex items-center gap-4">
-                                <button>Editar</button>
-                                <button>Eliminar</button>
+                                <a href="{{ route('admin.publications.edit', $publication) }}" class="inline-flex items-center gap-1 text-sm font-medium text-[#0f7688] transition-colors hover:text-[#0b5a68]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil size-3.5" aria-hidden="true">
+                                        <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path>
+                                        <path d="m15 5 4 4"></path>
+                                    </svg>
+                                    Editar
+                                </a>
+                                <a href="#" class="inline-flex items-center gap-1 text-sm font-medium text-[#df1b27] transition-colors hover:text-[#b3141e]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2 size-3.5" aria-hidden="true">
+                                        <path d="M3 6h18"></path>
+                                        <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                                        <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                                        <line x1="10" x2="10" y1="11" y2="17"></line>
+                                        <line x1="14" x2="14" y1="11" y2="17"></line>
+                                    </svg>
+                                    Eliminar
+                                </a>
                             </div>
                         </td>
                     </tr>
