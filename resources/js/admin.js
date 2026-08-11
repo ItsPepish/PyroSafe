@@ -24,6 +24,7 @@ function confirmDeletePost() {
             pendingForm = button.closest('[data-delete-form]');
             spanTitle.textContent = button.dataset.publicationTitle;
             modal.classList.remove('hidden');
+            
         })
     })
 
@@ -35,6 +36,8 @@ function confirmDeletePost() {
 
     buttonConfirm.addEventListener('click', function() {
         if(pendingForm !== null) {
+            buttonConfirm.disabled = true;
+            buttonConfirm.classList.add('opacity-60', 'cursor-not-allowed');
             pendingForm.submit();
         }
     })

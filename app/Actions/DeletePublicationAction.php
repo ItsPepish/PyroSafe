@@ -9,16 +9,19 @@ class DeletePublicationAction
 {
     public function __construct(private DeleteImageAction $deleteImage) {}
 
-    public function execute(Publication $publication): void {
+    public function execute(Publication $publication): void
+    {
         $publication->loadMissing('coverImage');
         $coverImage = $publication->coverImage;
 
-        DB::transaction(function() use($publication) {
+        DB::transaction(function () use ($publication, $coverImage) {
             $publication->delete();
+            if ($coverImage) {
+                DB::afterCommit(function () use ($coverImage) {
+                    $this->deleteImage->execute($coverImage);
+                });
+            }
         });
 
-        if($coverImage) {
-            $this->deleteImage->execute($coverImage);
-        }
     }
 }
