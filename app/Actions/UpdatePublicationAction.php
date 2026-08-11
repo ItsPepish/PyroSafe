@@ -40,11 +40,6 @@ class UpdatePublicationAction
                 return $publication;
             });
 
-            if ($newCoverImage !== null && $oldCoverImage) {
-                $this->deleteImage->execute($oldCoverImage);
-            }
-
-            return $updatedPublication;
         } catch (\Throwable $exception) {
             if ($newCoverImage) {
                 $this->deleteImage->execute($newCoverImage);
@@ -52,5 +47,14 @@ class UpdatePublicationAction
             throw $exception;
         }
 
+        try {
+            if ($newCoverImage !== null && $oldCoverImage) {
+                $this->deleteImage->execute($oldCoverImage);
+            }
+        } catch (\Throwable $exception) {
+            report($exception);
+        }
+
+        return $updatedPublication;
     }
 }
