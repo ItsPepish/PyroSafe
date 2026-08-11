@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 #[Fillable(['category_id', 'user_id', 'cover_image_id', 'title', 'slug', 'summary', 'content', 'status', 'published_at'])]
 class Publication extends Model
@@ -27,13 +26,6 @@ class Publication extends Model
     public function coverImage(): BelongsTo
     {
         return $this->belongsTo(Image::class, 'cover_image_id');
-    }
-
-    public function images(): BelongsToMany
-    {
-        return $this->belongsToMany(Image::class)
-            ->withPivot('position')
-            ->withTimestamps();
     }
 
     protected function casts(): array

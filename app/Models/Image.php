@@ -12,12 +12,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Image extends Model {
     use HasFactory;
 
-    public function publications(): BelongsToMany {
-        return $this->belongsToMany(Publication::class)
-            ->withPivot('position')
-            ->withTimestamps();
-    }
-
     public function reports(): BelongsToMany {
         return $this->belongsToMany(Report::class)
             ->withTimestamps();

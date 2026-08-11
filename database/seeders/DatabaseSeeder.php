@@ -13,11 +13,5 @@ class DatabaseSeeder extends Seeder {
             AdminUserSeeder::class,
             CategorySeeder::class
         ]);
-
-        if (app()->isLocal()) {
-            $this->call([
-                DemoContentSeeder::class,
-            ]);
-        }
     }
 }
