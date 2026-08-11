@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Actions\CreatePublicationAction;
+use App\Actions\UpdatePublicationAction;
 use App\Enums\PublicationStatus;
 use App\Http\Requests\StorePublicationRequest;
 use App\Http\Requests\UpdatePublicationRequest;
 use App\Models\Category;
 use App\Models\Publication;
+
 
 class AdminPublicationController extends Controller
 {
@@ -55,19 +57,8 @@ class AdminPublicationController extends Controller
         ]);
     }
 
-    public function update(UpdatePublicationRequest $request, Publication $publication) {
-        $validated = $request->validated();
-
-        $publishedAt = ($validated['status'] === PublicationStatus::Published->value) ? (($publication->published_at) ? $publication->published_at : now()) : null;
-
-        $publication->update([
-            'category_id' => $validated['category_id'],
-            'title' => $validated['title'],
-            'summary' => $validated['summary'],
-            'content' => $validated['content'],
-            'status' => $validated['status'],
-            'published_at' => $publishedAt
-        ]);
+    public function update(UpdatePublicationRequest $request, Publication $publication, UpdatePublicationAction $updatePublication) {
+         $updatePublication->execute($publication, $request->validated());
 
         return redirect()
             ->route('admin.publications.index')

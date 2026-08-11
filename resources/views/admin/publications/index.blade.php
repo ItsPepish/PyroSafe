@@ -60,7 +60,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="8">No hay publicaciones</td>
+                        <td colspan="8"  class="py-8 text-center">No hay publicaciones</td>
                     </tr>
                     @endforelse
                 </tbody>
