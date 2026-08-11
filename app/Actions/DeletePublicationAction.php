@@ -4,10 +4,11 @@ namespace App\Actions;
 
 use App\Models\Publication;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
 class DeletePublicationAction
 {
+    public function __construct(private DeleteImageAction $deleteImage) {}
+
     public function execute(Publication $publication): void {
         $publication->loadMissing('coverImage');
         $coverImage = $publication->coverImage;
@@ -17,10 +18,7 @@ class DeletePublicationAction
         });
 
         if($coverImage) {
-            if(Storage::disk('public')->exists($coverImage->path)) {
-                Storage::disk('public')->delete($coverImage->path);
-            }
-            $coverImage->delete();
+            $this->deleteImage->execute($coverImage);
         }
     }
 }
