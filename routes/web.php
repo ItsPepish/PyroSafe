@@ -13,13 +13,14 @@ Route::get('/info/{publication:slug}', [PublicationController::class, 'show'])->
 Route::get('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'authenticate'])->name('admin.auth');
 
-Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->middleware('auth')->name('admin.logout');
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::get('/', [AdminAuthController::class, 'dashboard'])->name('dashboard');
+    Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
 
-Route::get('/admin', [AdminAuthController::class, 'dashboard'])->middleware('auth')->name('admin.dashboard');
-
-Route::get('/admin/publications', [AdminPublicationController::class, 'index'])->middleware('auth')->name('admin.publications.index');
-Route::get('/admin/publications/create', [AdminPublicationController::class, 'create'])->middleware('auth')->name('admin.publications.create');
-Route::post('/admin/publications', [AdminPublicationController::class, 'store'])->middleware('auth')->name('admin.publications.store');
-Route::get('/admin/publications/{publication}/edit', [AdminPublicationController::class, 'edit'])->middleware('auth')->name('admin.publications.edit');
-Route::patch('/admin/publications/{publication}', [AdminPublicationController::class, 'update'])->middleware('auth')->name('admin.publications.update');
-Route::delete('/admin/publications/{publication}', [AdminPublicationController::class, 'destroy'])->middleware('auth')->name('admin.publications.destroy');
+    Route::get('/publications', [AdminPublicationController::class, 'index'])->name('publications.index');
+    Route::get('/publications/create', [AdminPublicationController::class, 'create'])->name('publications.create');
+    Route::post('/publications', [AdminPublicationController::class, 'store'])->name('publications.store');
+    Route::get('/publications/{publication}/edit', [AdminPublicationController::class, 'edit'])->name('publications.edit');
+    Route::patch('/publications/{publication}', [AdminPublicationController::class, 'update'])->name('publications.update');
+    Route::delete('/publications/{publication}', [AdminPublicationController::class, 'destroy'])->name('publications.destroy');
+});
