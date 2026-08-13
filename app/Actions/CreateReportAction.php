@@ -8,30 +8,38 @@ use Illuminate\Support\Str;
 
 class CreateReportAction
 {
-    public function __construct(private StoreWebpImageAction $storeWebpImage) {}
+    public function __construct(private StoreWebpImageAction $storeWebpImage, private DeleteImageAction $deleteImage) {}
 
     public function execute(array $data, string $ipAddress): Report
     {
         $images = $data['images'] ?? [];
         unset($data['images']);
+        $storedImages = [];
         $data['ip_address'] = $ipAddress;
         $data['folio'] = 'RPT-'.now()->format('Ymd').'-'.Str::upper(Str::random(6));
 
-        return DB::transaction(function () use($data, $images) {
-            $report = Report::create($data);
+        try {
+            return DB::transaction(function () use ($data, $images, &$storedImages) {
+                $report = Report::create($data);
 
-            $storedImageIds = [];
+                foreach ($images as $image) {
+                    $storedImage = $this->storeWebpImage->execute($image, 'reports');
+                    $storedImages[] = $storedImage;
+                }
 
-            foreach($images as $image) {
-                $storedImage = $this->storeWebpImage->execute($image, 'reports');
-                $storedImageIds[] = $storedImage->id;
+                $storedImageIds = collect($storedImages)->pluck('id')->all();
+
+                if ($storedImageIds !== []) {
+                    $report->images()->attach($storedImageIds);
+                }
+
+                return $report;
+            });
+        } catch (\Throwable $exception) {
+            foreach ($storedImages as $storedImage) {
+                $this->deleteImage->execute($storedImage);
             }
-
-            if($storedImageIds !== []) {
-                $report->images()->attach($storedImageIds);
-            }
-
-            return $report;
-        });
+            throw $exception;
+        }
     }
 }

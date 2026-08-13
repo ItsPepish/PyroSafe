@@ -9,7 +9,8 @@ use App\Http\Requests\StoreReportRequest;
 
 class ReportController extends Controller
 {
-    public function create() {
+    public function create()
+    {
         $reportTypes = ReportType::cases();
         $reportUrgencies = ReportUrgency::cases();
 
@@ -19,10 +20,12 @@ class ReportController extends Controller
         ]);
     }
 
-    public function store(StoreReportRequest $request, CreateReportAction $createReport) {
+    public function store(StoreReportRequest $request, CreateReportAction $createReport)
+    {
         $createReport->execute($request->validated(), $request->ip());
+
         return redirect()
             ->route('reports.create')
-            ->with('success', 'Reporte creada correctamente');
+            ->with('success', 'Reporte enviado correctamente');
     }
 }
