@@ -40,10 +40,21 @@
                 <div class="flex flex-col gap-4 rounded-2xl border border-gray-300/50 shadow-sm p-6">
                     <h2 class="font-semibold">3. Ubicación</h2>
                     <p>Indica dónde ocurre la situación.</p>
-                    <textarea name="address_reference"></textarea>
-                    <div data-report-map class="h-120 rounded-2xl border border-gray-300" id="map"></div>
-                    <p class="text-center">Haz click en el mapa para colocar el punto exacto. Si usas ubicación actual, ajusta el marcador si es necesario.</p>
-                    <button data-use-current-location type="button">Usar mi ubicación actual</button>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div class="flex flex-col gap-2">
+                            <label for="street_address">Dirección</label>
+                            <div class="relative">
+                                <input type="text" name="street_address" id="street_address" class="rounded-md border border-gray-300/50 shadow-sm px-4 py-2 w-full pr-12">
+                                <button data-search-address type="button" class="absolute right-2 top-1/2 -translate-y-1/2 size-8 rounded-full">⌕</button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label for="address_reference">Referencia (opcional)</label>
+                            <input type="text" name="address_reference" id="address_reference" class="rounded-md border border-gray-300/50 shadow-sm px-4 py-2 w-full">
+                        </div>
+                    </div>
+                    <div data-report-map class="h-120 z-0 rounded-2xl border border-gray-300" id="map"></div>
+                    <button data-use-current-location type="button" class="bg-red-200 rounded-2xl p-2">Usar mi ubicación actual</button>
                     <input type="text" name="latitude" readonly hidden>
                     <input type="text" name="longitude" readonly hidden>
                     

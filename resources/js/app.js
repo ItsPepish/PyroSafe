@@ -44,9 +44,11 @@ function reportMap() {
     const latitudeInput = document.querySelector('[name="latitude"]');
     const longitudeInput = document.querySelector('[name="longitude"]');
     const currentLocationButton = document.querySelector('[data-use-current-location]');
+    const streetAdressInput = document.querySelector('[name="street_address"]');
+    const streetAdressButton = document.querySelector('[data-search-address]');
     let marker = null;
 
-    if(!mapElement || !latitudeInput || !longitudeInput || !currentLocationButton) {
+    if(!mapElement || !latitudeInput || !longitudeInput || !currentLocationButton || !streetAdressInput || !streetAdressButton) {
         return;
     }
 
@@ -60,7 +62,7 @@ function reportMap() {
         const latitudeMap = e.latlng.lat;
         const longitudeMap = e.latlng.lng;
 
-        setReportLocation(latitudeMap, longitudeMap);
+        setReportLocation(latitudeMap, longitudeMap, 'map');
     })
 
     currentLocationButton.addEventListener('click', function() {
@@ -69,7 +71,7 @@ function reportMap() {
                 const latitudeMap = position.coords.latitude;
                 const longitudeMap = position.coords.longitude;
 
-                setReportLocation(latitudeMap, longitudeMap);
+                setReportLocation(latitudeMap, longitudeMap, 'current');
             }, 
             function(error) {
                 console.log (error.message);
@@ -82,7 +84,18 @@ function reportMap() {
         );
     })
 
-    function setReportLocation(latitude, longitude) {
+    streetAdressButton.addEventListener('click', function() {
+        searchLocation();
+    })
+
+    streetAdressInput.addEventListener('keydown', function(e) {
+        if(e.key === 'Enter') {
+            e.preventDefault();
+            searchLocation();
+        }
+    })
+
+    function setReportLocation(latitude, longitude, source) {
         const formattedLatitude = Number(latitude).toFixed(7);
         const formattedLongitude = Number(longitude).toFixed(7);
 
@@ -95,6 +108,73 @@ function reportMap() {
             marker.setLatLng([formattedLatitude, formattedLongitude]);
         }
 
+        let message = '';
+
+        switch(source) {
+            case 'map':
+                message = 'Punto seleccionado manualmente.';
+                break;
+            case 'current':
+                message = 'Ubicación actual detectada. Ajusta el punto si no es exacto.';
+                break;
+            case 'search':
+                message = 'Dirección encontrada. Revisa el punto antes de enviar.';
+                break;
+            default:
+                message = 'Punto seleccionado.';
+                break;
+        }
+
+        marker.bindPopup(message).openPopup();
+
         map.setView([formattedLatitude, formattedLongitude], 16);
+    }
+
+    async function searchLocation() {
+        let streetAddress = streetAdressInput.value.trim();
+
+        if(!streetAddress) {
+            return;
+        }
+        
+        const url = 'https://nominatim.openstreetmap.org/search';
+        const params = {
+            q: streetAddress,
+            format: 'json',
+            limit: '1',
+            countrycodes: 'mx'
+        }
+
+        const queryString = new URLSearchParams(params).toString();
+
+        let result;
+
+        try {
+            const response = await fetch(`${url}?${queryString}`);
+            const results = await response.json();
+            result = results[0];
+        } catch (error) {
+            L.popup()
+                .setLatLng(map.getCenter())
+                .setContent('No se pudo buscar la dirección. Intenta nuevamente.')
+                .openOn(map);
+            console.log(error);
+            return;
+        }
+
+        if(!result) {
+            L.popup()
+                .setLatLng(map.getCenter())
+                .setContent("Ubicación no encontrada.")
+                .openOn(map);
+            return;
+        }
+
+        let latitudeMap = result.lat;
+        let longitudeMap = result.lon;
+
+        console.log(result);
+
+        setReportLocation(latitudeMap, longitudeMap, 'search');
     }
 }

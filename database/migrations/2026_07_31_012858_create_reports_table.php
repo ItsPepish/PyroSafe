@@ -12,7 +12,8 @@ return new class extends Migration {
             $table->enum('type', ['clandestine_workshop', 'irregular_storage', 'unauthorized_sale', 'risk_situation']);
             $table->text('description');
             $table->enum('urgency', ['low', 'medium', 'high']);
-            $table->string('address_reference');
+            $table->string('street_address');
+            $table->string('address_reference')->nullable();
             $table->decimal('latitude', 10, 7);
             $table->decimal('longitude', 10, 7);
             $table->enum('status', ['pending', 'under_review', 'attended', 'discarded'])->default('pending');
