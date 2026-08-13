@@ -32,4 +32,15 @@ class StoreReportRequest extends FormRequest {
 
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'type.required' => 'El tipo de situación es obligatorio.',
+            'urgency.required' => 'El nivel de urgencia es obligatorio.',
+            'street_address.required' => 'La dirección es obligatoria.',
+            'description.required' => 'La descripción es obligatoria.',
+            'description.min' => 'La descripción debe contener mínimo 20 caracteres.'
+        ];
+    }
 }

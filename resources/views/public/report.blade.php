@@ -11,7 +11,12 @@
     </section>
 
     <section>
-        <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+        <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-14 sm:px-6">
+            @if (session('success'))
+                <div>
+                    <p class="rounded-2xl bg-[#10222b] px-4 py-2 text-center text-[#dee6e9]">{{ session('success') }}</p>
+                </div>
+            @endif
             <form
                 action="{{ route('reports.store') }}"
                 method="POST"
@@ -32,6 +37,7 @@
                                     type="radio"
                                     name="type"
                                     value="{{ $reportType->value }}"
+                                    @checked (old('type') == $reportType->value)
                                     class="peer sr-only"
                                 />
                                 <div
@@ -42,6 +48,9 @@
                             </label>
                         @endforeach
                     </div>
+                    @error ('type')
+                        <p class="text-sm text-[#b42318]">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div
@@ -56,6 +65,7 @@
                                     type="radio"
                                     name="urgency"
                                     value="{{ $reportUrgency->value }}"
+                                    @checked (old('urgency') == $reportUrgency->value)
                                     class="peer sr-only"
                                 />
                                 <div
@@ -66,6 +76,9 @@
                             </label>
                         @endforeach
                     </div>
+                    @error ('urgency')
+                        <p class="text-sm text-[#b42318]">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div
@@ -82,6 +95,7 @@
                                     name="street_address"
                                     id="street_address"
                                     placeholder="Ej. Centro Tultepec"
+                                    value="{{ old('street_address') }}"
                                     class="w-full rounded-md border border-gray-300/50 px-4 py-2 pr-12 shadow-sm"
                                 />
                                 <button
@@ -92,6 +106,9 @@
                                     ⌕
                                 </button>
                             </div>
+                            @error ('street_address')
+                                <p class="text-sm text-[#b42318]">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="flex flex-col gap-2">
                             <label for="address_reference"
@@ -102,8 +119,12 @@
                                 name="address_reference"
                                 id="address_reference"
                                 placeholder="Ej. Hay una tienda verde, enfrente de un terreno verdoso."
+                                value="{{ old('address_reference') }}"
                                 class="w-full rounded-md border border-gray-300/50 px-4 py-2 shadow-sm"
                             />
+                            @error ('address_reference')
+                                <p class="text-sm text-[#b42318]">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                     <div
@@ -111,6 +132,9 @@
                         class="z-0 h-120 rounded-2xl border border-gray-300"
                         id="map"
                     ></div>
+                    @error ('latitude')
+                        <p class="text-sm text-[#b42318]">Selecciona un punto en el mapa.</p>
+                    @enderror
                     <button
                         data-use-current-location
                         type="button"
@@ -118,8 +142,20 @@
                     >
                         Usar mi ubicación actual
                     </button>
-                    <input type="text" name="latitude" readonly hidden />
-                    <input type="text" name="longitude" readonly hidden />
+                    <input
+                        type="text"
+                        name="latitude"
+                        value="{{ old('latitude') }}"
+                        readonly
+                        hidden
+                    />
+                    <input
+                        type="text"
+                        name="longitude"
+                        value="{{ old('longitude') }}"
+                        readonly
+                        hidden
+                    />
                 </div>
 
                 <div
@@ -135,7 +171,11 @@
                         id="description"
                         placeholder="Ej. Se observa almacenamiento de material pirotécnico en un domicilio particular. . ."
                         class="w-full rounded-md border border-gray-300/50 px-4 py-2 pr-12 shadow-sm"
-                    ></textarea>
+                        >{{ old('description') }}</textarea
+                    >
+                    @error ('description')
+                        <p class="text-sm text-[#b42318]">{{ $message }}</p>
+                    @enderror
                     <p>Fotografías (opcional)</p>
                     <input
                         type="file"
@@ -143,6 +183,12 @@
                         multiple
                         accept="image/jpg,image/jpeg,image/png,image/webp"
                     />
+                    @error ('images')
+                        <p class="text-sm text-[#b42318]">{{ $message }}</p>
+                    @enderror
+                    @error ('images.*')
+                        <p class="text-sm text-[#b42318]">{{ $message }}</p>
+                    @enderror
                 </div>
                 <button
                     type="submit"

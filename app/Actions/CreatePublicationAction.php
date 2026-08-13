@@ -10,14 +10,14 @@ use Illuminate\Support\Str;
 
 class CreatePublicationAction
 {
-    public function __construct(private StorePublicationCoverImageAction $storePublicationCoverImage, private DeleteImageAction $deleteImage) {}
+    public function __construct(private StoreWebpImageAction $storeWebpImage, private DeleteImageAction $deleteImage) {}
 
     public function execute(array $data): Publication
     {
         $coverImage = null;
 
         try {
-            $coverImage = $this->storePublicationCoverImage->execute($data['cover_image']);
+            $coverImage = $this->storeWebpImage->execute($data['cover_image'], 'publications/covers');
 
             return DB::transaction(function () use ($data, $coverImage) {
                 $publishedAt = ($data['status'] === PublicationStatus::Published->value) ? now() : null;

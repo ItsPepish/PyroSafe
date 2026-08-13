@@ -58,6 +58,10 @@ function reportMap() {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
+    if (latitudeInput.value && longitudeInput.value) {
+        setReportLocation(latitudeInput.value, longitudeInput.value, 'default');
+    }
+
     map.on('click', function(e) {
         const latitudeMap = e.latlng.lat;
         const longitudeMap = e.latlng.lng;

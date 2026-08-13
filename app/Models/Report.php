@@ -11,7 +11,7 @@ use App\Enums\ReportStatus;
 use App\Enums\ReportType;
 use App\Enums\ReportUrgency;
 
-#[Fillable(['type', 'description', 'urgency', 'street_address', 'address_reference', 'latitude', 'longitude'])]
+#[Fillable(['folio', 'type', 'description', 'urgency', 'street_address', 'address_reference', 'latitude', 'longitude', 'ip_address'])]
 class Report extends Model {
     use HasFactory;
 

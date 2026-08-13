@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class UpdatePublicationAction
 {
-    public function __construct(private StorePublicationCoverImageAction $storePublicationCoverImage, private DeleteImageAction $deleteImage) {}
+    public function __construct(private StoreWebpImageAction $storeWebpImage, private DeleteImageAction $deleteImage) {}
 
     public function execute(Publication $publication, array $data): Publication
     {
@@ -21,7 +21,7 @@ class UpdatePublicationAction
                 $coverImageId = $publication->cover_image_id;
 
                 if (isset($data['cover_image'])) {
-                    $newCoverImage = $this->storePublicationCoverImage->execute($data['cover_image']);
+                    $newCoverImage = $this->storeWebpImage->execute($data['cover_image'], 'publications/covers');
                     $coverImageId = $newCoverImage->id;
                 }
 
