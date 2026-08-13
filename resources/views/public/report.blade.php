@@ -1,0 +1,63 @@
+@extends('layouts.public')
+
+@section('content')
+
+    <section class="bg-[#10222b] text-[#dee6e9]">
+        <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 flex flex-col gap-5">
+            <h1 class="text-3xl font-semibold sm:text-4xl">Reportar una situación de riesgo</h1>
+            <p class="max-w-2xl text-[#dee6e9]/80">Tu reporte es anónimo y confidencial. La información se canaliza a las autoridades competentes para su atención.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+            <form action="{{ route('reports.store') }}" method="POST" enctype="multipart/form-data" class="flex flex-col gap-5">
+                @csrf
+                <div class="flex flex-col gap-4 rounded-2xl border border-gray-300/50 shadow-sm p-6">
+                    <h2 class="font-semibold">1. Tipo de situación</h2>
+                    <p class="">Selecciona la opción que mejor describa lo que observaste.</p>
+                    <div class="grid grid-cols-2 gap-3 text-start">
+                        @foreach($reportTypes as $reportType)
+                        <label>
+                            <input type="radio" name="type" value="{{ $reportType->value }}" class="peer sr-only"> 
+                            <div class="border border-gray-300 rounded-2xl px-4 py-2 text-start cursor-pointer peer-checked:border-[#0f7688] peer-checked:bg-[#ecf3f5] peer-checked:text-[#0f7688]">{{ $reportType->label() }}</div>
+                        </label>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4 rounded-2xl border border-gray-300/50 shadow-sm p-6">
+                    <h2 class="font-semibold">2. Nivel de urgencia</h2>
+                    <p class="">Selecciona el nivel de urgencia para la situación.</p>
+                    <div class="grid grid-cols-3 gap-3 text-start">
+                        @foreach($reportUrgencies as $reportUrgency)
+                        <label>
+                            <input type="radio" name="urgency" value="{{ $reportUrgency->value }}" class="peer sr-only"> 
+                            <div class="border border-gray-300 rounded-2xl px-4 py-2 text-start cursor-pointer {{ $reportUrgency->checkedClasses() }}">{{ $reportUrgency->label() }}</div>
+                        </label>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4 rounded-2xl border border-gray-300/50 shadow-sm p-6">
+                    <h2 class="font-semibold">3. Ubicación</h2>
+                    <p>Indica dónde ocurre la situación.</p>
+                    <textarea name="address_reference"></textarea>
+                    <div data-report-map class="h-120 rounded-2xl border border-gray-300" id="map"></div>
+                    <p class="text-center">Haz click en el mapa para colocar el punto exacto. Si usas ubicación actual, ajusta el marcador si es necesario.</p>
+                    <button data-use-current-location type="button">Usar mi ubicación actual</button>
+                    <input type="text" name="latitude" readonly hidden>
+                    <input type="text" name="longitude" readonly hidden>
+                    
+                </div>
+                <div class="rounded-2xl border border-gray-300/50 shadow-sm p-6">
+                    <h2 class="font-semibold">4. Descripción</h2>
+                    <p>Cuéntanos con tus palabras qué está pasando.</p>
+                    <p>Descripción de la situación</p>
+                    <textarea name="description" id="" placeholder="Ej. Se observa almacenamiento de material pirotécnico en un domicilio particular. . ."></textarea>
+                    <p>Fotografías (opcional)</p>
+                    <input type="file" name="images[]" multiple accept="image/jpg,image/jpeg,image/png,image/webp">
+                </div>
+            </form>
+        </div>
+    </section>
+
+@endsection

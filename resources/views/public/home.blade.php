@@ -9,7 +9,7 @@
             <h1 class="text-4xl sm:text-5xl md:text-6xl max-w-3xl font-bold leading-tight">Seguridad pirotécnica para toda la comunidad</h1>
             <p class="text-base md:text-lg max-w-xl font-display">Información confiable, establecimientos autorizados y una vía sencilla para reportar situaciones de riesgo. PyroSafe fortalece la prevención y la participación ciudadana.</p>
             <div class="flex flex-wrap gap-4 font-display">
-                <a href="#" class="text-white font-semibold bg-red-600 hover:bg-red-700 rounded-lg px-5 py-3 cursor-pointer transition-colors">Reportar un riesgo</a>
+                <a href="{{ route('reports.create') }}" class="text-white font-semibold bg-red-600 hover:bg-red-700 rounded-lg px-5 py-3 cursor-pointer transition-colors">Reportar un riesgo</a>
                 <a href="#" class="text-black font-semibold bg-white hover:bg-gray-300 rounded-lg px-5 py-3 cursor-pointer transition-colors">Ver establecimientos</a>
             </div>
         </div>
@@ -119,7 +119,7 @@
                     <h2 class="text-3xl font-semibold">Información destacada</h2>
                     <p class="text-lg font-normal mt-3 font-display">Contenido educativo pensado para leerse en pocos minutos.</p>
                 </div>
-                <a href="/info" class="text-black font-semibold border border-gray-300 bg-white hover:bg-gray-100 rounded-lg px-3 py-2 cursor-pointer transition-colors">Ver biblioteca</a>
+                <a href="{{ route('publications.index') }}" class="text-black font-semibold border border-gray-300 bg-white hover:bg-gray-100 rounded-lg px-3 py-2 cursor-pointer transition-colors">Ver biblioteca</a>
             </div>
             <div class="grid gap-5 md:grid-cols-3">
                 @foreach($publications as $publication)
@@ -178,7 +178,7 @@
                     <h3 class="text-xl font-semibold">¿Detectaste una situación de riesgo?</h3>
                     <p class="text-sm font-display max-w-lg">Tu participación es clave. Reporta talleres clandestinos, almacenamiento irregular o cualquier situación de riesgo. Tu reporte puede salvar vidas.</p>
                 </div>
-                <a href="#" class="text-white font-semibold bg-red-600 hover:bg-red-700 rounded-lg px-5 py-3 cursor-pointer transition-colors text-center self-center">Reportar un riesgo</a>
+                <a href="{{ route('reports.create') }}" class="text-white font-semibold bg-red-600 hover:bg-red-700 rounded-lg px-5 py-3 cursor-pointer transition-colors text-center self-center">Reportar un riesgo</a>
             </div>
         </div>
     </section>
