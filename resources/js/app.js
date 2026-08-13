@@ -125,6 +125,14 @@ function reportMap() {
                 break;
         }
 
+        if(source === 'map' || source === 'current') {
+            reverseGeocode(formattedLatitude, formattedLongitude).then(function(place) {
+                if(place) {
+                    streetAdressInput.value = place;
+                }
+            });
+        }
+
         marker.bindPopup(message).openPopup();
 
         map.setView([formattedLatitude, formattedLongitude], 16);
@@ -139,10 +147,11 @@ function reportMap() {
         
         const url = 'https://nominatim.openstreetmap.org/search';
         const params = {
-            q: streetAddress,
-            format: 'json',
-            limit: '1',
-            countrycodes: 'mx'
+            'q': streetAddress,
+            'format': 'json',
+            'limit': '1',
+            'countrycodes': 'mx',
+            'accept-language': 'es'
         }
 
         const queryString = new URLSearchParams(params).toString();
@@ -172,9 +181,39 @@ function reportMap() {
 
         let latitudeMap = result.lat;
         let longitudeMap = result.lon;
+        let address = result.display_name;
 
-        console.log(result);
+        if(address) {
+            streetAdressInput.value = address;
+        }
 
         setReportLocation(latitudeMap, longitudeMap, 'search');
+    }
+
+    async function reverseGeocode(latitude, longitude) {
+        const url = 'https://nominatim.openstreetmap.org/reverse';
+        const params = {
+            'format': 'json',
+            'lat': latitude,
+            'lon': longitude,
+            'zoom': "18",
+            'addressdetails': '1',
+            'accept-language': 'es'
+        }
+
+        const queryString = new URLSearchParams(params).toString();
+
+        try {
+            const response = await fetch(`${url}?${queryString}`);
+            const results = await response.json();
+            return results.display_name;
+        } catch (error) {
+            L.popup()
+                .setLatLng(map.getCenter())
+                .setContent('No se pudo buscar la dirección. Intenta nuevamente.')
+                .openOn(map);
+            console.log(error);
+            return;
+        }
     }
 }

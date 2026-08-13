@@ -47,7 +47,7 @@
                             <h3 class="text-lg font-semibold text-balance">
                                 {{ $publication->title }}
                             </h3>
-                            <p class="font-display flex-1 text-sm">{{ $publication->summary }}</p>
+                            <p class="flex-1 font-display text-sm">{{ $publication->summary }}</p>
                             <a
                                 href="{{ route('publications.show', $publication) }}"
                                 class="inline-flex items-center gap-1.5 font-semibold text-sky-600"

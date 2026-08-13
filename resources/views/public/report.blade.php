@@ -59,7 +59,7 @@
                                     class="peer sr-only"
                                 />
                                 <div
-                                    class="border border-gray-300 rounded-2xl px-4 py-2 text-start cursor-pointer {{ $reportUrgency->checkedClasses() }}"
+                                    class="cursor-pointer rounded-2xl border border-gray-300 px-2 py-2 text-center text-xs md:px-4 md:text-start md:text-base {{ $reportUrgency->checkedClasses() }}"
                                 >
                                     {{ $reportUrgency->label() }}
                                 </div>
@@ -81,6 +81,7 @@
                                     type="text"
                                     name="street_address"
                                     id="street_address"
+                                    placeholder="Ej. Centro Tultepec"
                                     class="w-full rounded-md border border-gray-300/50 px-4 py-2 pr-12 shadow-sm"
                                 />
                                 <button
@@ -100,6 +101,7 @@
                                 type="text"
                                 name="address_reference"
                                 id="address_reference"
+                                placeholder="Ej. Hay una tienda verde, enfrente de un terreno verdoso."
                                 class="w-full rounded-md border border-gray-300/50 px-4 py-2 shadow-sm"
                             />
                         </div>
@@ -151,53 +153,5 @@
             </form>
         </div>
     </section>
-
-@endsection
-</button>
-</form>
-</div>
-</section>
-
-@endsection
-</button>
-</form>
-</div>
-</section>
-
-@endsection
-</button>
-</form>
-</div>
-</section>
-
-@endsection
-</button>
-</form>
-</div>
-</section>
-
-@endsection
-</button>
-</form>
-</div>
-</section>
-
-@endsection
-</button>
-</form>
-</div>
-</section>
-
-@endsection
-</button>
-</form>
-</div>
-</section>
-
-@endsection
-</button>
-</form>
-</div>
-</section>
 
 @endsection

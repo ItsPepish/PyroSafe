@@ -16,8 +16,8 @@
             >
                 Seguridad pirotécnica para toda la comunidad
             </h1>
-            <p class="font-display max-w-xl text-base md:text-lg">Información confiable, establecimientos autorizados y una vía sencilla para reportar situaciones de riesgo. PyroSafe fortalece la prevención y la participación ciudadana.</p>
-            <div class="font-display flex flex-wrap gap-4">
+            <p class="max-w-xl font-display text-base md:text-lg">Información confiable, establecimientos autorizados y una vía sencilla para reportar situaciones de riesgo. PyroSafe fortalece la prevención y la participación ciudadana.</p>
+            <div class="flex flex-wrap gap-4 font-display">
                 <a
                     href="{{ route('reports.create') }}"
                     class="cursor-pointer rounded-lg bg-red-600 px-5 py-3 font-semibold text-white transition-colors hover:bg-red-700"
@@ -36,7 +36,7 @@
         <div class="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 sm:px-6">
             <div class="max-w-2xl">
                 <h2 class="text-3xl font-semibold">Todo en un solo lugar</h2>
-                <p class="font-display mt-3 text-lg">Accede directo a los módulos principales de la plataforma, pensados para ser claros y fáciles de usar por cualquier persona.</p>
+                <p class="mt-3 font-display text-lg">Accede directo a los módulos principales de la plataforma, pensados para ser claros y fáciles de usar por cualquier persona.</p>
             </div>
             <div class="grid gap-5 md:grid-cols-3">
                 @foreach ($features as $feature)
@@ -63,7 +63,7 @@
                             <h3 class="text-lg font-semibold">
                                 {{ $feature['title'] }}
                             </h3>
-                            <p class="font-display mt-2 text-gray-600">{{ $feature['description'] }}</p>
+                            <p class="mt-2 font-display text-gray-600">{{ $feature['description'] }}</p>
                         </div>
                         <a
                             href="{{ $feature['href'] }}"
@@ -102,7 +102,7 @@
                 <h2 class="text-3xl font-semibold text-balance">
                     Prevenir es cuidar a la comunidad
                 </h2>
-                <p class="font-display mt-3">Pequeñas acciones marcan la diferencia. Estas son algunas medidas básicas que todos podemos aplicar.</p>
+                <p class="mt-3 font-display">Pequeñas acciones marcan la diferencia. Estas son algunas medidas básicas que todos podemos aplicar.</p>
                 <ul class="mt-8 grid gap-4 sm:grid-cols-2">
                     <li class="flex gap-3">
                         <span
@@ -117,7 +117,7 @@
                                 >Distancia segura</span
                             >
                             <span
-                                class="font-display mt-0.5 block text-justify text-sm"
+                                class="mt-0.5 block text-justify font-display text-sm"
                                 >Mantén al menos 15 metros entre el público y el
                                 punto de quema.</span
                             >
@@ -136,7 +136,7 @@
                                 >Nunca en interiores</span
                             >
                             <span
-                                class="font-display mt-0.5 block text-justify text-sm"
+                                class="mt-0.5 block text-justify font-display text-sm"
                                 >No enciendas ni almacenes pirotecnia dentro de
                                 viviendas.</span
                             >
@@ -155,7 +155,7 @@
                                 >Supervisión adulta</span
                             >
                             <span
-                                class="font-display mt-0.5 block text-justify text-sm"
+                                class="mt-0.5 block text-justify font-display text-sm"
                                 >La manipulación siempre debe estar a cargo de
                                 personas adultas.</span
                             >
@@ -174,7 +174,7 @@
                                 >Compra autorizada</span
                             >
                             <span
-                                class="font-display mt-0.5 block text-justify text-sm"
+                                class="mt-0.5 block text-justify font-display text-sm"
                                 >Adquiere solo en establecimientos con permiso
                                 vigente.</span
                             >
@@ -192,7 +192,7 @@
                     <h2 class="text-3xl font-semibold">
                         Información destacada
                     </h2>
-                    <p class="font-display mt-3 text-lg font-normal">Contenido educativo pensado para leerse en pocos minutos.</p>
+                    <p class="mt-3 font-display text-lg font-normal">Contenido educativo pensado para leerse en pocos minutos.</p>
                 </div>
                 <a
                     href="{{ route('publications.index') }}"
@@ -235,7 +235,7 @@
                             <h3 class="text-lg font-semibold text-balance">
                                 {{ $publication->title }}
                             </h3>
-                            <p class="font-display flex-1 text-sm">{{ $publication->summary }}</p>
+                            <p class="flex-1 font-display text-sm">{{ $publication->summary }}</p>
                             <a
                                 href="{{ route('publications.show', $publication) }}"
                                 class="inline-flex items-center gap-1.5 font-semibold text-sky-600"
@@ -263,7 +263,7 @@
                 <h2 class="text-3xl font-semibold">
                     Reportar es fácil y anónimo
                 </h2>
-                <p class="font-display mt-3 text-lg font-normal">En tres pasos puedes ayudar a prevenir un accidente. No necesitas crear una cuenta.</p>
+                <p class="mt-3 font-display text-lg font-normal">En tres pasos puedes ayudar a prevenir un accidente. No necesitas crear una cuenta.</p>
             </div>
             <ol class="grid gap-5 md:grid-cols-3">
                 @foreach ($reportSteps as $reportStep)
@@ -295,7 +295,7 @@
                     <h3 class="text-xl font-semibold">
                         ¿Detectaste una situación de riesgo?
                     </h3>
-                    <p class="font-display max-w-lg text-sm">Tu participación es clave. Reporta talleres clandestinos, almacenamiento irregular o cualquier situación de riesgo. Tu reporte puede salvar vidas.</p>
+                    <p class="max-w-lg font-display text-sm">Tu participación es clave. Reporta talleres clandestinos, almacenamiento irregular o cualquier situación de riesgo. Tu reporte puede salvar vidas.</p>
                 </div>
                 <a
                     href="{{ route('reports.create') }}"

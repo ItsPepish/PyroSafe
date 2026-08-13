@@ -1,6 +1,8 @@
 export default {
     plugins: ['prettier-plugin-blade', 'prettier-plugin-tailwindcss'],
 
+    tailwindStylesheet: './resources/css/app.css',
+
     overrides: [
         {
             files: ['*.blade.php'],

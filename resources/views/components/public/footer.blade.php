@@ -4,11 +4,11 @@
     >
         <div class="md:col-span-2">
             <span class="text-lg font-semibold">Pyro<span>Safe</span></span>
-            <p class="font-display mt-4 max-w-sm text-sm">Plataforma comunitaria de prevención de riesgos pirotécnicos en Tultepec, Estado de México. PyroSafe es una herramienta de apoyo ciudadano y no sustituye a las autoridades competentes.</p>
+            <p class="mt-4 max-w-sm font-display text-sm">Plataforma comunitaria de prevención de riesgos pirotécnicos en Tultepec, Estado de México. PyroSafe es una herramienta de apoyo ciudadano y no sustituye a las autoridades competentes.</p>
         </div>
         <div>
             <h4 class="text-sm font-semibold">Plataforma</h4>
-            <ul class="font-display mt-3 space-y-2 text-sm">
+            <ul class="mt-3 space-y-2 font-display text-sm">
                 <li>
                     <a href="/info" class="hover:text-gray-600"
                         >Información Preventiva</a
