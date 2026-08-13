@@ -1,5 +1,5 @@
-@extends('layouts.admin')
+@extends ('layouts.admin')
 
-@section('content')
-<h1>Reports Admin</h1>
-@endsection('content')
+@section ('content')
+    <h1>Reports Admin</h1>
+@endsection ('content')
