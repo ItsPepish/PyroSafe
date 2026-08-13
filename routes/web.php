@@ -12,7 +12,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/info', [PublicationController::class, 'index'])->name('publications.index');
 Route::get('/info/{publication:slug}', [PublicationController::class, 'show'])->name('publications.show');
 Route::get('/reporte', [ReportController::class, 'create'])->name('reports.create');
-Route::post('/reporte', [ReportController::class, 'store'])->name('reports.store');
+Route::post('/reporte', [ReportController::class, 'store'])->name('reports.store')->middleware('throttle:3,60');;
 
 Route::get('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'authenticate'])->name('admin.auth');
