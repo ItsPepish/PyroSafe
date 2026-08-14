@@ -7,10 +7,14 @@ use Illuminate\Support\Facades\Storage;
 
 class DeleteImageAction
 {
-    public function execute(Image $image): void {
-        if(Storage::disk('public')->exists($image->path)) {
-            Storage::disk('public')->delete($image->path);
-        }
+    public function execute(Image $image): void
+    {
+        $path = $image->path;
+
         $image->delete();
+
+        if (Storage::disk('public')->exists($path)) {
+            Storage::disk('public')->delete($path);
+        }
     }
 }

@@ -16,16 +16,16 @@ class CreateReportAction
         unset($data['images']);
         $storedImages = [];
         $data['ip_address'] = $ipAddress;
-        $data['folio'] = 'RPT-'.now()->format('Ymd').'-'.Str::upper(Str::random(6));
+        $data['folio'] = $this->generateFolio();
 
         try {
-            return DB::transaction(function () use ($data, $images, &$storedImages) {
-                $report = Report::create($data);
+            foreach ($images as $image) {
+                $storedImage = $this->storeWebpImage->execute($image, 'reports');
+                $storedImages[] = $storedImage;
+            }
 
-                foreach ($images as $image) {
-                    $storedImage = $this->storeWebpImage->execute($image, 'reports');
-                    $storedImages[] = $storedImage;
-                }
+            return DB::transaction(function () use ($data, $storedImages) {
+                $report = Report::create($data);
 
                 $storedImageIds = collect($storedImages)->pluck('id')->all();
 
@@ -41,5 +41,14 @@ class CreateReportAction
             }
             throw $exception;
         }
+    }
+
+    private function generateFolio(): string
+    {
+        do {
+            $folio = 'RPT-'.now()->format('Ymd').'-'.Str::upper(Str::random(6));
+        } while (Report::where('folio', $folio)->exists());
+
+        return $folio;
     }
 }

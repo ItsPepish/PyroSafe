@@ -45,7 +45,6 @@ class StoreReportRequest extends FormRequest
             'description.required' => 'La descripción es obligatoria.',
             'description.min' => 'La descripción debe contener mínimo 20 caracteres.',
             'images.max' => 'Solo se aceptan 6 imágenes máximo.',
-            'status.enum' => 'El estado seleccionado no es válido.'
         ];
     }
 }
