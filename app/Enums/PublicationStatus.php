@@ -22,7 +22,7 @@ enum PublicationStatus: string
         return match ($this) {
             self::Draft => 'bg-[#ecf3f5] text-[#5e6b73]',
             self::Published => 'bg-[#489a68]/14 text-[#005e31]',
-            self::Hidden => '',
+            self::Hidden => 'bg-[#f4993c]/15 text-[#a85e17]',
         };
     }
 }

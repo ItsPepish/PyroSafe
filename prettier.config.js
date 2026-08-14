@@ -3,6 +3,10 @@ export default {
 
     tailwindStylesheet: './resources/css/app.css',
 
+    printWidth: 140,
+    singleQuote: true,
+    bracketSameLine: true,
+
     overrides: [
         {
             files: ['*.blade.php'],

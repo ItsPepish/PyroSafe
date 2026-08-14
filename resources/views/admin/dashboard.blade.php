@@ -6,9 +6,7 @@
             <div class="rounded-2xl border border-[#d6e0e4] p-4">
                 <div class="flex flex-row justify-between">
                     <p class="text-3xl font-bold text-red-500 md:text-6xl">2</p>
-                    <div
-                        class="flex h-8 w-8 items-center justify-center rounded-lg bg-red-200"
-                    >
+                    <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-red-200">
                         <div class="h-4 w-4 rounded-full bg-red-500"></div>
                     </div>
                 </div>
@@ -18,9 +16,7 @@
             <div class="rounded-2xl border border-[#d6e0e4] p-4">
                 <div class="flex flex-row justify-between">
                     <p class="text-3xl font-bold text-yellow-500 md:text-6xl">2</p>
-                    <div
-                        class="flex h-8 w-8 items-center justify-center rounded-lg bg-yellow-200"
-                    >
+                    <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-yellow-200">
                         <div class="h-4 w-4 rounded-full bg-yellow-500"></div>
                     </div>
                 </div>
@@ -30,9 +26,7 @@
             <div class="rounded-2xl border border-[#d6e0e4] p-4">
                 <div class="flex flex-row justify-between">
                     <p class="text-3xl font-bold text-green-500 md:text-6xl">2</p>
-                    <div
-                        class="flex h-8 w-8 items-center justify-center rounded-lg bg-green-200"
-                    >
+                    <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-green-200">
                         <div class="h-4 w-4 rounded-full bg-green-500"></div>
                     </div>
                 </div>
@@ -42,9 +36,7 @@
             <div class="rounded-2xl border border-[#d6e0e4] p-4">
                 <div class="flex flex-row justify-between">
                     <p class="text-3xl font-bold text-sky-500 md:text-6xl">2</p>
-                    <div
-                        class="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-200"
-                    >
+                    <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-200">
                         <div class="h-4 w-4 rounded-full bg-sky-500"></div>
                     </div>
                 </div>

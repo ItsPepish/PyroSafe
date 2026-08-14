@@ -23,7 +23,7 @@ class HomeController extends Controller
                 'description' => 'Ubica en un mapa interactivo los establecimientos autorizados y sus datos.',
                 'color' => 'sky',
                 'link_text' => 'Explorar',
-                'href' => '/mapa',
+                'href' => '/establecimientos',
                 'icon' => 'map',
             ],
             [

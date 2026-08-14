@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AdminEstablishmentController;
 use App\Http\Controllers\AdminPublicationController;
 use App\Http\Controllers\AdminReportController;
+use App\Http\Controllers\EstablishmentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\ReportController;
@@ -12,7 +14,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/info', [PublicationController::class, 'index'])->name('publications.index');
 Route::get('/info/{publication:slug}', [PublicationController::class, 'show'])->name('publications.show');
 Route::get('/reporte', [ReportController::class, 'create'])->name('reports.create');
-Route::post('/reporte', [ReportController::class, 'store'])->name('reports.store')->middleware('throttle:3,60');
+Route::post('/reporte', [ReportController::class, 'store'])->middleware('throttle:3,60')->name('reports.store');
+Route::get('/establecimientos', [EstablishmentController::class, 'index'])->name('establishments.index');
 
 Route::get('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'authenticate'])->name('admin.auth');
@@ -31,4 +34,11 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/reports', [AdminReportController::class, 'index'])->name('reports.index');
     Route::get('/reports/{report}', [AdminReportController::class, 'show'])->name('reports.show');
     Route::patch('/reports/{report}/status', [AdminReportController::class, 'updateStatus'])->name('reports.update-status');
+
+    Route::get('/establishments', [AdminEstablishmentController::class, 'index'])->name('establishments.index');
+    Route::get('/establishments/create', [AdminEstablishmentController::class, 'create'])->name('establishments.create');
+    Route::post('/establishments', [AdminEstablishmentController::class, 'store'])->name('establishments.store');
+    Route::get('/establishments/{establishment}/edit', [AdminEstablishmentController::class, 'edit'])->name('establishments.edit');
+    Route::patch('/establishments/{establishment}', [AdminEstablishmentController::class, 'update'])->name('establishments.update');
+    Route::delete('/establishments/{establishment}', [AdminEstablishmentController::class, 'destroy'])->name('establishments.destroy');
 });

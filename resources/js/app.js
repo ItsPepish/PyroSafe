@@ -48,9 +48,9 @@ function reportMap() {
     const streetAdressButton = document.querySelector('[data-search-address]');
     let marker = null;
 
-    if(!mapElement || !latitudeInput || !longitudeInput || !currentLocationButton || !streetAdressInput || !streetAdressButton) {
-        return;
-    }
+    // if(!mapElement || !latitudeInput || !longitudeInput || !currentLocationButton || !streetAdressInput || !streetAdressButton) {
+    //     return;
+    // }
 
     const map = L.map(mapElement).setView([19.685, -99.128], 16);
 
