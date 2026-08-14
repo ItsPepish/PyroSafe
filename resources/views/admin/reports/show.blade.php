@@ -20,6 +20,9 @@
         <section
             class="flex h-full flex-col gap-2 rounded-2xl border border-[#d6e0e4] bg-[#ecf3f5] p-4"
         >
+            <h2 class="text-lg font-semibold text-[#10222b]">
+                Información de la situación
+            </h2>
             <div class="flex flex-wrap items-center gap-8">
                 <p class="text-sm text-[#10222b]"><span class="font-medium text-[#5e6b73]">Fecha de la situación:</span> {{ $report->created_at->format('d/m/Y H:i') }}</p>
                 <p class="text-sm text-[#10222b]"><span class="font-medium text-[#5e6b73]">Tipo de situación:</span> {{ $report->type->label() }}</p>

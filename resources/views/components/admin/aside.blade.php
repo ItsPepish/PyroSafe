@@ -5,13 +5,13 @@
         <p class="text-2xl font-semibold text-[#dee6e9]">Pyro<span class="text-[#0f7688]">Safe</span></p>
     </div>
     <nav class="flex-1 space-y-1 p-3">
-        <a
+        <!-- <a
             href="{{ route('admin.dashboard') }}"
             class="flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-[#dee6e9]/70 transition-colors hover:bg-[#1b313d]/60 hover:text-[#dee6e9]"
         >
             <x-icons.resum />
             Resumen
-        </a>
+        </a> -->
         <a
             href="{{ route('admin.reports.index') }}"
             class="flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-[#dee6e9]/70 transition-colors hover:bg-[#1b313d]/60 hover:text-[#dee6e9]"
