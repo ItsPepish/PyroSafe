@@ -12,10 +12,12 @@
                 <p class="inline-flex rounded-full bg-[#f4993c]/20 px-3 py-1 text-xs font-medium text-[#f4993c]">{{ $publication->category->name }}</p>
                 <p class="text-[#dee6e9]/70">{{ $publication->published_at->format('d/m/Y') }}</p>
             </div>
-            <h1 class="text-3xl font-semibold sm:text-4xl">
+            <h1
+                class="text-3xl leading-tight font-semibold text-balance sm:text-4xl"
+            >
                 {{ $publication->title }}
             </h1>
-            <p class="max-w-2xl text-[#dee6e9]/80">{{ $publication->summary }}</p>
+            <p class="max-w-2xl leading-relaxed text-pretty text-[#dee6e9]/80">{{ $publication->summary }}</p>
         </div>
     </section>
     <section>
@@ -25,13 +27,13 @@
             <img
                 src="{{ Storage::url($publication->coverImage->path) }}"
                 alt="{{ $publication->coverImage->alt_text }}"
-                class="rounded-4xl"
+                class="aspect-video w-full rounded-2xl border border-[#d6e0e4] object-cover"
             />
-            <p>{{ $publication->content }}</p>
+            <p class="leading-relaxed text-pretty whitespace-pre-line text-[#10222b]">{{ $publication->content }}</p>
         </div>
     </section>
 
-    <section class="border-t border-gray-300 bg-[#ecf3f5]">
+    <section class="border-t border-[#d6e0e4] bg-[#ecf3f5]">
         <div
             class="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-8 sm:px-6 sm:py-16"
         >
@@ -39,15 +41,13 @@
             <div class="grid gap-5 md:grid-cols-3">
                 @foreach ($relatedPublications as $relatedPublication)
                     <div
-                        class="group relative flex h-full flex-col rounded-2xl border border-[#d6e0e4] bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+                        class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#d6e0e4] bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
                     >
-                        <div
-                            class="relative aspect-4/3 overflow-hidden rounded-t-lg"
-                        >
+                        <div class="relative aspect-4/3 overflow-hidden">
                             <img
                                 src="{{ Storage::url($relatedPublication->coverImage->path) }}"
                                 alt=""
-                                class="h-full w-full object-cover"
+                                class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                             />
                         </div>
                         <div class="flex flex-1 flex-col gap-4 p-4">
@@ -68,10 +68,12 @@
                                     {{ $relatedPublication->published_at->format('d/m/Y') }}
                                 </span>
                             </div>
-                            <h3 class="text-lg font-semibold text-[#10222b]">
-                                {{ $publication->title }}
+                            <h3
+                                class="line-clamp-2 text-lg leading-snug font-semibold text-balance text-[#10222b]"
+                            >
+                                {{ $relatedPublication->title }}
                             </h3>
-                            <p class="flex-1 text-sm text-[#5e6b73]">{{ $relatedPublication->summary }}</p>
+                            <p class="line-clamp-3 flex-1 text-sm leading-relaxed text-[#5e6b73]">{{ $relatedPublication->summary }}</p>
                             <a
                                 href="{{ route('publications.show', $relatedPublication) }}"
                                 class="inline-flex items-center gap-1.5 text-sm font-semibold text-[#0f7688]"

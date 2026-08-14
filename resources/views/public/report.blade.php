@@ -3,10 +3,12 @@
 @section ('content')
     <section class="bg-[#10222b] text-[#dee6e9]">
         <div class="mx-auto flex max-w-6xl flex-col gap-5 px-4 py-14 sm:px-6">
-            <h1 class="text-3xl font-semibold sm:text-4xl">
+            <h1
+                class="text-3xl leading-tight font-semibold text-balance sm:text-4xl"
+            >
                 Reportar una situación de riesgo
             </h1>
-            <p class="max-w-2xl text-[#dee6e9]/80">Tu reporte es anónimo y confidencial. La información se canaliza a las autoridades competentes para su atención.</p>
+            <p class="max-w-2xl leading-relaxed text-pretty text-[#dee6e9]/80">Tu reporte es anónimo y confidencial. La información se canaliza a las autoridades competentes para su atención.</p>
         </div>
     </section>
 
@@ -14,7 +16,7 @@
         <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-14 sm:px-6">
             @if (session('success'))
                 <div>
-                    <p class="rounded-2xl bg-[#10222b] px-4 py-2 text-center text-[#dee6e9]">{{ session('success') }}</p>
+                    <p class="rounded-xl border border-[#0f7688]/30 bg-[#0f7688]/8 px-4 py-3 text-center text-sm font-medium text-[#0f7688]">{{ session('success') }}</p>
                 </div>
             @endif
             <form
@@ -26,10 +28,12 @@
                 @csrf
 
                 <div
-                    class="flex flex-col gap-4 rounded-2xl border border-gray-300/50 p-6 shadow-sm"
+                    class="flex flex-col gap-4 rounded-2xl border border-[#d6e0e4] bg-white p-6 shadow-sm"
                 >
-                    <h2 class="font-semibold">1. Tipo de situación</h2>
-                    <p>Selecciona la opción que mejor describa lo que observaste.</p>
+                    <h2 class="text-lg font-semibold text-[#10222b]">
+                        1. Tipo de situación
+                    </h2>
+                    <p class="text-sm text-[#5e6b73]">Selecciona la opción que mejor describa lo que observaste.</p>
                     <div class="grid grid-cols-2 gap-3 text-start">
                         @foreach ($reportTypes as $reportType)
                             <label>
@@ -41,7 +45,7 @@
                                     class="peer sr-only"
                                 />
                                 <div
-                                    class="h-full cursor-pointer content-center rounded-2xl border border-gray-300 px-2 py-2 text-center text-xs peer-checked:border-[#0f7688] peer-checked:bg-[#ecf3f5] peer-checked:text-[#0f7688] md:px-4 md:text-start md:text-base"
+                                    class="h-full cursor-pointer content-center rounded-xl border border-[#d6e0e4] px-2 py-2 text-center text-xs font-medium text-[#10222b] transition-colors peer-checked:border-[#0f7688] peer-checked:bg-[#ecf3f5] peer-checked:text-[#0f7688] hover:border-[#0f7688]/50 md:px-4 md:text-start md:text-base"
                                 >
                                     {{ $reportType->label() }}
                                 </div>
@@ -49,15 +53,17 @@
                         @endforeach
                     </div>
                     @error ('type')
-                        <p class="text-sm text-[#b42318]">{{ $message }}</p>
+                        <p class="text-sm text-[#df1b27]">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div
-                    class="flex flex-col gap-4 rounded-2xl border border-gray-300/50 p-6 shadow-sm"
+                    class="flex flex-col gap-4 rounded-2xl border border-[#d6e0e4] bg-white p-6 shadow-sm"
                 >
-                    <h2 class="font-semibold">2. Nivel de urgencia</h2>
-                    <p>Selecciona el nivel de urgencia para la situación.</p>
+                    <h2 class="text-lg font-semibold text-[#10222b]">
+                        2. Nivel de urgencia
+                    </h2>
+                    <p class="text-sm text-[#5e6b73]">Selecciona el nivel de urgencia para la situación.</p>
                     <div class="grid grid-cols-3 gap-3 text-start">
                         @foreach ($reportUrgencies as $reportUrgency)
                             <label>
@@ -69,7 +75,7 @@
                                     class="peer sr-only"
                                 />
                                 <div
-                                    class="cursor-pointer rounded-2xl border border-gray-300 px-2 py-2 text-center text-xs md:px-4 md:text-start md:text-base {{ $reportUrgency->checkedClasses() }}"
+                                    class="cursor-pointer rounded-xl border border-[#d6e0e4] px-2 py-2 text-center text-xs font-medium text-[#10222b] transition-colors hover:border-[#0f7688]/50 md:px-4 md:text-start md:text-base {{ $reportUrgency->checkedClasses() }}"
                                 >
                                     {{ $reportUrgency->label() }}
                                 </div>
@@ -77,18 +83,24 @@
                         @endforeach
                     </div>
                     @error ('urgency')
-                        <p class="text-sm text-[#b42318]">{{ $message }}</p>
+                        <p class="text-sm text-[#df1b27]">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div
-                    class="flex flex-col gap-4 rounded-2xl border border-gray-300/50 p-6 shadow-sm"
+                    class="flex flex-col gap-4 rounded-2xl border border-[#d6e0e4] bg-white p-6 shadow-sm"
                 >
-                    <h2 class="font-semibold">3. Ubicación</h2>
-                    <p>Indica dónde ocurre la situación.</p>
+                    <h2 class="text-lg font-semibold text-[#10222b]">
+                        3. Ubicación
+                    </h2>
+                    <p class="text-sm text-[#5e6b73]">Indica dónde ocurre la situación.</p>
                     <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
                         <div class="flex flex-col gap-2">
-                            <label for="street_address">Dirección</label>
+                            <label
+                                for="street_address"
+                                class="text-sm font-medium text-[#10222b]"
+                                >Dirección</label
+                            >
                             <div class="relative">
                                 <input
                                     type="text"
@@ -96,22 +108,24 @@
                                     id="street_address"
                                     placeholder="Ej. Centro Tultepec"
                                     value="{{ old('street_address') }}"
-                                    class="w-full rounded-md border border-gray-300/50 px-4 py-2 pr-12 shadow-sm"
+                                    class="h-11 w-full rounded-xl border border-[#d6e0e4] bg-white px-3.5 pr-12 text-sm text-[#10222b] shadow-sm transition-colors placeholder:text-[#5e6b73] focus-visible:border-[#0f7688] focus-visible:ring-3 focus-visible:ring-[#0f7688]/25 focus-visible:outline-none"
                                 />
                                 <button
                                     data-search-address
                                     type="button"
-                                    class="absolute top-1/2 right-2 size-8 -translate-y-1/2 rounded-full"
+                                    class="absolute top-1/2 right-2 grid size-8 -translate-y-1/2 place-items-center rounded-full text-[#5e6b73] transition-colors hover:bg-[#ecf3f5] hover:text-[#0f7688]"
                                 >
                                     ⌕
                                 </button>
                             </div>
                             @error ('street_address')
-                                <p class="text-sm text-[#b42318]">{{ $message }}</p>
+                                <p class="text-sm text-[#df1b27]">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="flex flex-col gap-2">
-                            <label for="address_reference"
+                            <label
+                                for="address_reference"
+                                class="text-sm font-medium text-[#10222b]"
                                 >Referencia (opcional)</label
                             >
                             <input
@@ -120,25 +134,25 @@
                                 id="address_reference"
                                 placeholder="Ej. Hay una tienda verde, enfrente de un terreno verdoso."
                                 value="{{ old('address_reference') }}"
-                                class="w-full rounded-md border border-gray-300/50 px-4 py-2 shadow-sm"
+                                class="h-11 w-full rounded-xl border border-[#d6e0e4] bg-white px-3.5 text-sm text-[#10222b] shadow-sm transition-colors placeholder:text-[#5e6b73] focus-visible:border-[#0f7688] focus-visible:ring-3 focus-visible:ring-[#0f7688]/25 focus-visible:outline-none"
                             />
                             @error ('address_reference')
-                                <p class="text-sm text-[#b42318]">{{ $message }}</p>
+                                <p class="text-sm text-[#df1b27]">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
                     <div
                         data-report-map
-                        class="z-0 h-120 rounded-2xl border border-gray-300"
+                        class="z-0 h-120 rounded-2xl border border-[#d6e0e4]"
                         id="map"
                     ></div>
                     @error ('latitude')
-                        <p class="text-sm text-[#b42318]">Selecciona un punto en el mapa.</p>
+                        <p class="text-sm text-[#df1b27]">Selecciona un punto en el mapa.</p>
                     @enderror
                     <button
                         data-use-current-location
                         type="button"
-                        class="rounded-2xl bg-red-200 p-2"
+                        class="inline-flex items-center justify-center gap-2 rounded-xl border border-[#d6e0e4] bg-white px-4 py-2.5 text-sm font-medium text-[#10222b] transition-colors hover:bg-[#ecf3f5]"
                     >
                         Usar mi ubicación actual
                     </button>
@@ -159,40 +173,47 @@
                 </div>
 
                 <div
-                    class="flex flex-col gap-4 rounded-2xl border border-gray-300/50 p-6 shadow-sm"
+                    class="flex flex-col gap-4 rounded-2xl border border-[#d6e0e4] bg-white p-6 shadow-sm"
                 >
-                    <h2 class="font-semibold">4. Descripción</h2>
-                    <p>Cuéntanos con tus palabras qué está pasando.</p>
-                    <label for="description"
+                    <h2 class="text-lg font-semibold text-[#10222b]">
+                        4. Descripción
+                    </h2>
+                    <p class="text-sm text-[#5e6b73]">Cuéntanos con tus palabras qué está pasando.</p>
+                    <label
+                        for="description"
+                        class="text-sm font-medium text-[#10222b]"
                         >Descripción de la situación.</label
                     >
                     <textarea
                         name="description"
                         id="description"
                         placeholder="Ej. Se observa almacenamiento de material pirotécnico en un domicilio particular. . ."
-                        class="w-full rounded-md border border-gray-300/50 px-4 py-2 pr-12 shadow-sm"
+                        class="min-h-32 w-full rounded-xl border border-[#d6e0e4] bg-white p-3.5 text-sm leading-relaxed text-[#10222b] shadow-sm transition-colors placeholder:text-[#5e6b73] focus-visible:border-[#0f7688] focus-visible:ring-3 focus-visible:ring-[#0f7688]/25 focus-visible:outline-none"
                         >{{ old('description') }}</textarea
                     >
                     @error ('description')
-                        <p class="text-sm text-[#b42318]">{{ $message }}</p>
+                        <p class="text-sm text-[#df1b27]">{{ $message }}</p>
                     @enderror
-                    <p>Fotografías (opcional)</p>
+                    <label class="text-sm font-medium text-[#10222b]"
+                        >Fotografías (opcional)</label
+                    >
                     <input
                         type="file"
                         name="images[]"
                         multiple
                         accept="image/jpg,image/jpeg,image/png,image/webp"
+                        class="rounded-xl border border-[#d6e0e4] bg-white p-2.5 text-sm text-[#5e6b73] shadow-sm transition-colors file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-[#0f7688] file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-[#f8fdfd] hover:file:bg-[#0b5a68]"
                     />
                     @error ('images')
-                        <p class="text-sm text-[#b42318]">{{ $message }}</p>
+                        <p class="text-sm text-[#df1b27]">{{ $message }}</p>
                     @enderror
                     @error ('images.*')
-                        <p class="text-sm text-[#b42318]">{{ $message }}</p>
+                        <p class="text-sm text-[#df1b27]">{{ $message }}</p>
                     @enderror
                 </div>
                 <button
                     type="submit"
-                    class="cursor-pointer rounded-lg bg-red-600 px-2 py-2 text-center font-semibold text-white transition-colors hover:bg-red-700"
+                    class="inline-flex cursor-pointer items-center justify-center rounded-xl bg-[#df1b27] px-4 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[#b3141e]"
                 >
                     Enviar reporte
                 </button>

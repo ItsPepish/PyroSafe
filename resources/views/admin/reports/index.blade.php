@@ -3,8 +3,12 @@
 @section ('content')
     <div class="flex flex-col gap-5">
         <div class="flex items-center justify-between">
-            <h1 class="text-2xl font-semibold text-[#10222b]">Reportes ciudadanos</h1>
-            <span class="text-sm text-[#5e6b73]">{{ $reports->total() }} reportes</span>
+            <h1 class="text-2xl font-semibold text-[#10222b]">
+                Reportes ciudadanos
+            </h1>
+            <span class="text-sm text-[#5e6b73]"
+                >{{ $reports->total() }} reportes</span
+            >
         </div>
 
         <div
@@ -28,24 +32,34 @@
                     <tbody class="divide-y divide-[#d6e0e4]">
                         @forelse ($reports as $report)
                             <tr class="transition-colors hover:bg-[#ecf3f5]/50">
-                                <td class="px-5 py-4 font-mono text-xs font-medium text-[#10222b]">{{ $report->folio }}</td>
+                                <td
+                                    class="px-5 py-4 font-mono text-xs font-medium text-[#10222b]"
+                                >
+                                    {{ $report->folio }}
+                                </td>
                                 <td class="px-5 py-4 text-[#10222b]">
                                     {{ $report->type->label() }}
                                 </td>
                                 <td class="px-5 py-4">
-                                    <span class="inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium {{ $report->urgency->badgeClasses() }}">
+                                    <span
+                                        class="inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium {{ $report->urgency->badgeClasses() }}"
+                                    >
                                         {{ $report->urgency->label() }}
                                     </span>
                                 </td>
                                 <td class="px-5 py-4">
-                                    <span class="inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium {{ $report->status->badgeClasses() }}">
+                                    <span
+                                        class="inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium {{ $report->status->badgeClasses() }}"
+                                    >
                                         {{ $report->status->label() }}
                                     </span>
                                 </td>
                                 <td class="px-5 py-4 text-[#5e6b73]">
                                     {{ $report->street_address }}
                                 </td>
-                                <td class="px-5 py-4 font-mono text-xs text-[#5e6b73]">
+                                <td
+                                    class="px-5 py-4 font-mono text-xs text-[#5e6b73]"
+                                >
                                     {{ $report->created_at->format('d/m/Y H:i') }}
                                 </td>
                                 <td class="px-5 py-4">
@@ -61,7 +75,10 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="px-5 py-12 text-center text-sm text-[#5e6b73]">
+                                <td
+                                    colspan="7"
+                                    class="px-5 py-12 text-center text-sm text-[#5e6b73]"
+                                >
                                     No hay reportes registrados.
                                 </td>
                             </tr>

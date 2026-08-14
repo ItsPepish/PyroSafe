@@ -3,7 +3,9 @@
 @section ('content')
     <div class="flex h-full flex-col gap-5">
         <div class="flex flex-col gap-2">
-            <h1 class="text-2xl font-semibold text-[#10222b]">Nueva publicación</h1>
+            <h1 class="text-2xl font-semibold text-[#10222b]">
+                Nueva publicación
+            </h1>
             <p class="text-sm text-[#5e6b73]">Agrega un articulo a la biblioteca de información preventiva.</p>
         </div>
         <form
@@ -14,7 +16,9 @@
         >
             @csrf
             <div class="flex flex-col gap-2">
-                <label for="title" class="text-sm font-medium text-[#10222b]">Titulo</label>
+                <label for="title" class="text-sm font-medium text-[#10222b]"
+                    >Titulo</label
+                >
                 <input
                     type="text"
                     name="title"
@@ -29,7 +33,9 @@
             </div>
 
             <div class="flex flex-col gap-2">
-                <label for="summary" class="text-sm font-medium text-[#10222b]">Resumen</label>
+                <label for="summary" class="text-sm font-medium text-[#10222b]"
+                    >Resumen</label
+                >
                 <input
                     type="text"
                     name="summary"
@@ -44,7 +50,9 @@
             </div>
 
             <div class="flex h-full flex-col gap-2">
-                <label for="content" class="text-sm font-medium text-[#10222b]">Contenido</label>
+                <label for="content" class="text-sm font-medium text-[#10222b]"
+                    >Contenido</label
+                >
                 <textarea
                     name="content"
                     id="content"
@@ -58,7 +66,11 @@
             </div>
 
             <div class="flex flex-col gap-2">
-                <label for="cover_image" class="text-sm font-medium text-[#10222b]">Imagen de Portada</label>
+                <label
+                    for="cover_image"
+                    class="text-sm font-medium text-[#10222b]"
+                    >Imagen de Portada</label
+                >
                 <input
                     type="file"
                     name="cover_image"
@@ -73,7 +85,11 @@
 
             <div class="grid grid-cols-2 gap-5">
                 <div class="flex flex-col gap-2">
-                    <label for="category_id" class="text-sm font-medium text-[#10222b]">Categoria</label>
+                    <label
+                        for="category_id"
+                        class="text-sm font-medium text-[#10222b]"
+                        >Categoria</label
+                    >
                     <select
                         name="category_id"
                         id="category_id"
@@ -100,7 +116,11 @@
                     @enderror
                 </div>
                 <div class="flex flex-col gap-2">
-                    <label for="status" class="text-sm font-medium text-[#10222b]">Estado</label>
+                    <label
+                        for="status"
+                        class="text-sm font-medium text-[#10222b]"
+                        >Estado</label
+                    >
                     <select
                         name="status"
                         id="status"
