@@ -2,17 +2,19 @@
 
 @section ('content')
     <div class="flex flex-col gap-5">
-        <div class="flex justify-end">
+        <div class="flex items-center justify-between">
+            <div class="flex flex-col">
+                <h1 class="text-2xl font-semibold text-[#10222b]">Publicaciones</h1>
+                <p class="text-sm text-[#5e6b73]">{{ $publications->total() }} publicaciones</p>
+            </div>
             <a
                 href="{{ route('admin.publications.create') }}"
-                class="rounded-xl bg-[#0f7688] px-4 py-2 text-white"
+                class="inline-flex items-center rounded-xl bg-[#0f7688] px-4 py-2 text-sm font-medium text-[#f8fdfd] transition-colors hover:bg-[#0b5a68]"
                 >Nueva Publicación</a
             >
         </div>
         @if (session('success'))
-            <div>
-                <p class="rounded-2xl bg-[#10222b] px-4 py-2 text-center text-[#dee6e9]">{{ session('success') }}</p>
-            </div>
+            <p class="rounded-xl border border-[#0f7688]/30 bg-[#0f7688]/8 px-4 py-3 text-sm font-medium text-[#0f7688]">{{ session('success') }}</p>
         @endif
         <div
             class="overflow-hidden rounded-2xl border border-[#d6e0e4] bg-white"
@@ -21,7 +23,7 @@
                 <table class="w-full min-w-205 text-left text-sm">
                     <thead>
                         <tr
-                            class="border-b border-[#d6e0e4] bg-[#ecf3f5] text-xs font-semibold text-[#5e6b73] uppercase"
+                            class="border-b border-[#d6e0e4] bg-[#ecf3f5] text-xs font-semibold tracking-wide text-[#5e6b73] uppercase"
                         >
                             <th class="px-5 py-3.5">Portada</th>
                             <th class="px-5 py-3.5">Título</th>
@@ -30,7 +32,7 @@
                             <th class="px-5 py-3.5">Estado</th>
                             <th class="px-5 py-3.5">Publicado</th>
                             <th class="px-5 py-3.5">Actualizado</th>
-                            <th class="px-5 py-3.5">Acciones</th>
+                            <th class="px-5 py-3.5 text-right">Acciones</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-[#d6e0e4]">
@@ -40,29 +42,33 @@
                                     <img
                                         src="{{ Storage::url($publication->coverImage->path) }}"
                                         alt="{{ $publication->coverImage->alt_text }}"
-                                        class="aspect-video w-48 rounded-lg object-cover"
+                                        class="aspect-video w-48 rounded-lg border border-[#d6e0e4] object-cover"
                                     />
                                 </td>
-                                <td class="px-5 py-4">
+                                <td class="px-5 py-4 font-medium text-[#10222b]">
                                     {{ $publication->title }}
                                 </td>
                                 <td class="px-5 py-4">
-                                    {{ $publication->category->name }}
+                                    <span class="inline-flex rounded-full bg-[#f4993c]/15 px-2.5 py-0.5 text-xs font-medium text-[#a85e17]">
+                                        {{ $publication->category->name }}
+                                    </span>
                                 </td>
-                                <td class="px-5 py-4">
+                                <td class="px-5 py-4 text-[#5e6b73]">
                                     {{ $publication->user->name }}
                                 </td>
                                 <td class="px-5 py-4">
-                                    {{ $publication->status->label() }}
+                                    <span class="inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium {{ $publication->status->badgeClasses() }}">
+                                        {{ $publication->status->label() }}
+                                    </span>
                                 </td>
-                                <td class="px-5 py-4">
+                                <td class="px-5 py-4 font-mono text-xs text-[#5e6b73]">
                                     {{ $publication->published_at ? $publication->published_at->format('d/m/Y') : 'Sin publicar' }}
                                 </td>
-                                <td class="px-5 py-4">
+                                <td class="px-5 py-4 font-mono text-xs text-[#5e6b73]">
                                     {{ $publication->updated_at->format('d/m/Y H:i') }}
                                 </td>
                                 <td class="px-5 py-4">
-                                    <div class="flex items-center gap-4">
+                                    <div class="flex items-center justify-end gap-4">
                                         <a
                                             href="{{ route('admin.publications.edit', $publication) }}"
                                             class="inline-flex items-center gap-1 text-sm font-medium text-[#0f7688] transition-colors hover:text-[#0b5a68]"
@@ -101,7 +107,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="8" class="py-8 text-center">
+                                <td colspan="8" class="px-5 py-12 text-center text-sm text-[#5e6b73]">
                                     No hay publicaciones
                                 </td>
                             </tr>
@@ -115,9 +121,9 @@
 
     <div
         data-delete-modal
-        class="fixed inset-0 z-50 flex hidden flex-col items-center justify-center bg-[#10222b]/40 p-4 backdrop-blur-sm"
+        class="fixed inset-0 z-50 hidden flex items-center justify-center bg-[#10222b]/40 p-4 backdrop-blur-sm"
     >
-        <div class="flex flex-col gap-4 rounded-2xl bg-white p-5">
+        <div class="flex w-full max-w-md flex-col gap-4 rounded-2xl border border-[#d6e0e4] bg-white p-6 shadow-2xl">
             <div class="flex flex-col items-center gap-4 text-center">
                 <span
                     class="grid size-12 place-items-center rounded-full bg-[#df1b27]/12"
@@ -132,8 +138,8 @@
                     <h2 class="text-lg font-semibold text-[#10222b]">
                         ¿Estás seguro de realizar dicha acción?
                     </h2>
-                    <p class="text-sm text-[#5e6b73]">Vas a eliminar: <span data-delete-title class="font-medium text-[#10222b]"></span>.</p>
-                    <p class="text-sm text-[#5e6b73]">Esta acción no se puede deshacer.</p>
+                    <p class="text-sm leading-relaxed text-[#5e6b73]">Vas a eliminar: <span data-delete-title class="font-medium text-[#10222b]"></span>.</p>
+                    <p class="text-sm leading-relaxed text-[#5e6b73]">Esta acción no se puede deshacer.</p>
                 </div>
             </div>
             <div class="flex items-center justify-center gap-3">

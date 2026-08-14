@@ -24,4 +24,13 @@ enum ReportUrgency: string {
             self::High => 'peer-checked:border-red-600 peer-checked:bg-red-50 peer-checked:text-red-700',
         };
     }
+
+    public function badgeClasses(): string
+    {
+        return match ($this) {
+            self::Low    => 'bg-[#0f7688]/12 text-[#0f7688]',
+            self::Medium => 'bg-[#f4993c]/15 text-[#a85e17]',
+            self::High   => 'bg-[#df1b27]/12 text-[#df1b27]',
+        };
+    }
 }

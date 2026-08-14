@@ -1,9 +1,13 @@
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+
 document.addEventListener('DOMContentLoaded', function() {
     iniciarApp();
 })
 
 function iniciarApp() {
     confirmDeletePost();
+    adminReportMap();
 }
 
 function confirmDeletePost() {
@@ -41,4 +45,28 @@ function confirmDeletePost() {
             pendingForm.submit();
         }
     })
+}
+
+function adminReportMap() {
+    const mapElement = document.querySelector('[data-admin-report-map]');
+
+    if(!mapElement) {
+        return;
+    }
+
+    const latitude = Number(mapElement.dataset.latitude);
+    const longitude = Number(mapElement.dataset.longitude);
+
+    const map = L.map(mapElement).setView([latitude, longitude], 16);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    const marker = L.marker([latitude, longitude]).addTo(map);
+    marker.bindPopup('Ubicación reportada',{
+        closeOnClick: false,
+        autoClose: false,
+        closeButton: false,
+    }).openPopup();
 }

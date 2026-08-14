@@ -13,7 +13,7 @@
             Resumen
         </a>
         <a
-            href="#"
+            href="{{ route('admin.reports.index') }}"
             class="flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-[#dee6e9]/70 transition-colors hover:bg-[#1b313d]/60 hover:text-[#dee6e9]"
         >
             <x-icons.report />
