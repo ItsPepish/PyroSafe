@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function iniciarApp() {
     navbarMobile();
     reportMap();
+    publicEstablishmentsMap();
 }
 
 function navbarMobile() {
@@ -164,5 +165,69 @@ function reportMap() {
         }
 
         setReportLocation(latitudeMap, longitudeMap, 'search');
+    }
+}
+
+function publicEstablishmentsMap() {
+    const mapElement = document.querySelector('[data-public-establishments-map]');
+    const cards = document.querySelectorAll('[data-establishment-card]');
+    
+    if (!mapElement) {
+        return;
+    }
+
+    const map = showMap(mapElement, [19.685, -99.128], 13);
+    const establishments = JSON.parse(mapElement.dataset.establishments);
+
+    const markers = {};
+
+    establishments.forEach(function(establishment) {
+        const latitude = Number(establishment.latitude);
+        const longitude = Number(establishment.longitude);
+
+        const marker = L.marker([latitude, longitude]).addTo(map);
+
+        marker.bindPopup('<p style="margin: 0;">' + establishment.name + '</p><p style="margin: 0;">' + establishment.address + '</p>');
+
+        marker.on('click', function() {
+            activateCard(establishment.id);
+        })
+
+        markers[establishment.id] = marker;
+    })
+
+    cards.forEach(function(card) {
+        card.addEventListener('click', function() {
+            const idCard = card.dataset.establishmentId;
+            const marker = markers[idCard];
+
+            if(!marker) {
+                return;
+            }
+
+            activateCard(idCard);
+            map.setView(marker.getLatLng(), 16);
+            marker.openPopup();
+        })
+    })
+
+    function activateCard(id) {
+        cards.forEach(function(currentCard) {
+            currentCard.classList.remove('border-[#0f7688]');
+            currentCard.classList.remove('text-[#0f7688]');
+            currentCard.classList.remove('bg-[#ecf3f5]');
+            currentCard.classList.add('border-[#d6e0e4]');
+
+            if(currentCard.dataset.establishmentId == id) {
+                currentCard.classList.remove('border-[#d6e0e4]');
+                currentCard.classList.add('border-[#0f7688]');
+                currentCard.classList.add('text-[#0f7688]');
+                currentCard.classList.add('bg-[#ecf3f5]');
+                currentCard.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                });
+            }
+        })
     }
 }

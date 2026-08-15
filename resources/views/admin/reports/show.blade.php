@@ -11,9 +11,6 @@
             <h1 class="text-4xl font-bold text-[#10222b]">Folio: {{ $report->folio }}</h1>
             <p class="text-lg text-[#5e6b73]">Revisa la información detallada del reporte.</p>
         </div>
-        @if (session('success'))
-            <p class="rounded-xl border border-[#0f7688]/30 bg-[#0f7688]/8 px-4 py-3 text-center text-sm font-medium text-[#0f7688]">{{ session('success') }}</p>
-        @endif
 
         <section class="flex h-full flex-col gap-2 rounded-2xl border border-[#d6e0e4] bg-[#ecf3f5] p-4">
             <h2 class="text-lg font-semibold text-[#10222b]">Información de la situación</h2>

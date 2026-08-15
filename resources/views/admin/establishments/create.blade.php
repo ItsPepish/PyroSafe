@@ -40,19 +40,19 @@
             <div class="flex gap-5">
                 <div class="flex flex-col gap-2">
                     <label for="is_visible" class="text-sm font-medium text-[#10222b]">Visible</label>
-                    <div class="flex h-11 items-center gap-2 rounded-xl border border-[#d6e0e4] bg-white px-3.5 shadow-sm transition-colors focus-within:border-[#0f7688] focus-within:ring-3 focus-within:ring-[#0f7688]/25">
-                        <input type="hidden" name="is_visible" value="0">
+                    <div
+                        class="flex h-11 items-center gap-2 rounded-xl border border-[#d6e0e4] bg-white px-3.5 shadow-sm transition-colors focus-within:border-[#0f7688] focus-within:ring-3 focus-within:ring-[#0f7688]/25">
+                        <input type="hidden" name="is_visible" value="0" />
                         <input
                             type="checkbox"
                             name="is_visible"
                             id="is_visible"
                             value="1"
-                            @checked(old('is_visible', '1'))
-                            class="size-4 rounded border-[#d6e0e4] accent-[#0f7688] focus-visible:ring-3 focus-visible:ring-[#0f7688]/25 focus-visible:outline-none"
-                        />
+                            @checked (old('is_visible', '1'))
+                            class="size-4 rounded border-[#d6e0e4] accent-[#0f7688] focus-visible:ring-3 focus-visible:ring-[#0f7688]/25 focus-visible:outline-none" />
                     </div>
                 </div>
-                <div class="flex flex-col gap-2 w-full">
+                <div class="flex w-full flex-col gap-2">
                     <label for="business_hours" class="text-sm font-medium text-[#10222b]">Horario de atención</label>
                     <input
                         type="text"
@@ -64,7 +64,7 @@
                         <p class="text-sm text-[#df1b27]">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="flex flex-col gap-2 w-full">
+                <div class="flex w-full flex-col gap-2">
                     <label for="phone" class="text-sm font-medium text-[#10222b]">Número telefónico</label>
                     <input
                         type="text"
@@ -103,10 +103,10 @@
                 @error ('latitude')
                     <p class="text-sm text-[#df1b27]">Selecciona un punto en el mapa.</p>
                 @enderror
-                <input type="hidden" name="latitude" value="{{ old('latitude') }}"/>
-                <input type="hidden" name="longitude" value="{{ old('longitude') }}"/>
+                <input type="hidden" name="latitude" value="{{ old('latitude') }}" />
+                <input type="hidden" name="longitude" value="{{ old('longitude') }}" />
             </div>
-            
+
             <div class="flex justify-end gap-3 border-t border-[#d6e0e4] pt-4">
                 <a
                     href="{{ route('admin.establishments.index') }}"
