@@ -63,7 +63,7 @@
                 >Establecimientos</a
             >
             <a
-                href="#"
+                href="{{ route('acerca') }}"
                 class="cursor-pointer rounded-lg px-3 py-2 text-sm font-medium text-[#5e6b73] transition-colors hover:bg-[#ecf3f5] hover:text-[#10222b]"
                 >Acerca de</a
             >
