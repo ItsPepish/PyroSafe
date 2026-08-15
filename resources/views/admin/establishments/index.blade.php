@@ -89,4 +89,35 @@
         </div>
         {{ $establishments->links() }}
     </div>
+
+    <div data-delete-modal class="fixed inset-0 z-50 flex hidden items-center justify-center bg-[#10222b]/40 p-4 backdrop-blur-sm">
+        <div class="flex w-full max-w-md flex-col gap-4 rounded-2xl border border-[#d6e0e4] bg-white p-6 shadow-2xl">
+            <div class="flex flex-col items-center gap-4 text-center">
+                <span class="grid size-12 place-items-center rounded-full bg-[#df1b27]/12">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert size-6 text-[#df1b27]" aria-hidden="true">
+                        <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path>
+                        <path d="M12 9v4"></path>
+                        <path d="M12 17h.01"></path>
+                    </svg>
+                </span>
+                <div class="flex flex-col gap-1.5">
+                    <h2 class="text-lg font-semibold text-[#10222b]">¿Estás seguro de realizar dicha acción?</h2>
+                    <p class="text-sm leading-relaxed text-[#5e6b73]">Vas a eliminar: <span data-delete-modal-title class="font-medium text-[#10222b]"></span>.</p>
+                    <p class="text-sm leading-relaxed text-[#5e6b73]">Esta acción no se puede deshacer.</p>
+                </div>
+            </div>
+            <div class="flex items-center justify-center gap-3">
+                <button
+                    data-delete-cancel
+                    class="cursor-pointer rounded-xl border border-[#d6e0e4] bg-white px-4 py-2 text-sm font-medium text-[#10222b] transition-colors hover:bg-[#ecf3f5]">
+                    Cancelar
+                </button>
+                <button
+                    data-delete-confirm
+                    class="cursor-pointer rounded-xl bg-[#df1b27] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#b3141e]">
+                    Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
 @endsection

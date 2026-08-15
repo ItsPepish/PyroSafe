@@ -187,7 +187,17 @@ function publicEstablishmentsMap() {
 
         const marker = L.marker([latitude, longitude]).addTo(map);
 
-        marker.bindPopup('<p style="margin: 0;">' + establishment.name + '</p><p style="margin: 0;">' + establishment.address + '</p>');
+        const popupContent = document.createElement('div');
+
+        const name = document.createElement('p');
+        name.textContent = establishment.name;
+
+        const address = document.createElement('p');
+        address.textContent = establishment.address;
+
+        popupContent.append(name, address);
+
+        marker.bindPopup(popupContent);
 
         marker.on('click', function() {
             activateCard(establishment.id);

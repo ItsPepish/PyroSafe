@@ -6,14 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 function iniciarApp() {
-    confirmDeletePost();
+    confirmDelete();
     adminReportMap();
     adminEstablishmentMap();
 }
 
-function confirmDeletePost() {
+function confirmDelete() {
     const modal = document.querySelector('[data-delete-modal]');
-    const spanTitle = document.querySelector('[data-delete-title]');
+    const spanTitle = document.querySelector('[data-delete-modal-title]');
     const buttonCancel = document.querySelector('[data-delete-cancel]');
     const buttonConfirm = document.querySelector('[data-delete-confirm]');
     const allButtons = document.querySelectorAll('[data-delete-button]');
@@ -27,7 +27,7 @@ function confirmDeletePost() {
     allButtons.forEach(function(button) {
         button.addEventListener('click', function() {
             pendingForm = button.closest('[data-delete-form]');
-            spanTitle.textContent = button.dataset.publicationTitle;
+            spanTitle.textContent = button.dataset.deleteTitle;
             modal.classList.remove('hidden');
             
         })
@@ -127,7 +127,7 @@ function adminEstablishmentMap() {
                 message = 'Dirección encontrada. Revisa el punto antes de guardar.';
                 break;
             default:
-                message = 'Punto seleccionado.';
+                message = 'Establecimiento localizado.';
                 break;
         }
     
