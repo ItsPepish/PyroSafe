@@ -42,7 +42,7 @@ class AdminReportController extends Controller
         ]);
 
         return redirect()
-            ->route('admin.reports.show', $report)
+            ->route('admin.reports.index', $report)
             ->with('success', 'Estado actualizado correctamente');
     }
 }

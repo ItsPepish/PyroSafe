@@ -21,6 +21,8 @@ class EstablishmentFactory extends Factory {
             'latitude' => fake()->latitude(14, 33),
             'longitude' => fake()->longitude(-118, -86),
             'description' => fake()->paragraph(),
+            'business_hours' => fake()->time(),
+            'phone' => fake()->phoneNumber(),
             'is_visible' => fake()->boolean(85)
         ];
     }

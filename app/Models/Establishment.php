@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-#[Fillable(['name', 'address', 'latitude', 'longitude', 'description', 'is_visible'])]
+#[Fillable(['name', 'address', 'latitude', 'longitude', 'description', 'business_hours', 'phone', 'is_visible'])]
 class Establishment extends Model {
     use HasFactory;
 

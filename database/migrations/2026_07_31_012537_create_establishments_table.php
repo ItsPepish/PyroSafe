@@ -12,7 +12,9 @@ return new class extends Migration{
             $table->string('address');
             $table->decimal('latitude', 10, 7);
             $table->decimal('longitude', 10, 7);
-            $table->text('description');
+            $table->string('description')->nullable();
+            $table->string('business_hours')->nullable();
+            $table->string('phone')->nullable();
             $table->boolean('is_visible')->default(true);
             $table->timestamps();
         });

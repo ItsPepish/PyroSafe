@@ -1,5 +1,5 @@
 import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import { showMap, reverseGeocode, searchAddress } from './maps';
 
 document.addEventListener('DOMContentLoaded', function() {
     iniciarApp();
@@ -48,15 +48,11 @@ function reportMap() {
     const streetAdressButton = document.querySelector('[data-search-address]');
     let marker = null;
 
-    // if(!mapElement || !latitudeInput || !longitudeInput || !currentLocationButton || !streetAdressInput || !streetAdressButton) {
-    //     return;
-    // }
+    if(!mapElement || !latitudeInput || !longitudeInput || !currentLocationButton || !streetAdressInput || !streetAdressButton) {
+        return;
+    }
 
-    const map = L.map(mapElement).setView([19.685, -99.128], 16);
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    const map = showMap(mapElement, [19.685, -99.128]);
 
     if (latitudeInput.value && longitudeInput.value) {
         setReportLocation(latitudeInput.value, longitudeInput.value, 'default');
@@ -148,37 +144,13 @@ function reportMap() {
         if(!streetAddress) {
             return;
         }
-        
-        const url = 'https://nominatim.openstreetmap.org/search';
-        const params = {
-            'q': streetAddress,
-            'format': 'json',
-            'limit': '1',
-            'countrycodes': 'mx',
-            'accept-language': 'es'
-        }
 
-        const queryString = new URLSearchParams(params).toString();
-
-        let result;
-
-        try {
-            const response = await fetch(`${url}?${queryString}`);
-            const results = await response.json();
-            result = results[0];
-        } catch (error) {
-            L.popup()
-                .setLatLng(map.getCenter())
-                .setContent('No se pudo buscar la dirección. Intenta nuevamente.')
-                .openOn(map);
-            console.log(error);
-            return;
-        }
+        const result = await searchAddress(streetAddress);
 
         if(!result) {
             L.popup()
                 .setLatLng(map.getCenter())
-                .setContent("Ubicación no encontrada.")
+                .setContent("No se pudo buscar la dirección. Intenta nuevamente.")
                 .openOn(map);
             return;
         }
@@ -192,32 +164,5 @@ function reportMap() {
         }
 
         setReportLocation(latitudeMap, longitudeMap, 'search');
-    }
-
-    async function reverseGeocode(latitude, longitude) {
-        const url = 'https://nominatim.openstreetmap.org/reverse';
-        const params = {
-            'format': 'json',
-            'lat': latitude,
-            'lon': longitude,
-            'zoom': "18",
-            'addressdetails': '1',
-            'accept-language': 'es'
-        }
-
-        const queryString = new URLSearchParams(params).toString();
-
-        try {
-            const response = await fetch(`${url}?${queryString}`);
-            const results = await response.json();
-            return results.display_name;
-        } catch (error) {
-            L.popup()
-                .setLatLng(map.getCenter())
-                .setContent('No se pudo buscar la dirección. Intenta nuevamente.')
-                .openOn(map);
-            console.log(error);
-            return;
-        }
     }
 }

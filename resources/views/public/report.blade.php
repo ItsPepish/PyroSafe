@@ -115,8 +115,8 @@
                         class="inline-flex items-center justify-center gap-2 rounded-xl border border-[#d6e0e4] bg-white px-4 py-2.5 text-sm font-medium text-[#10222b] transition-colors hover:bg-[#ecf3f5]">
                         Usar mi ubicación actual
                     </button>
-                    <input type="text" name="latitude" value="{{ old('latitude') }}" readonly hidden />
-                    <input type="text" name="longitude" value="{{ old('longitude') }}" readonly hidden />
+                    <input type="hidden" name="latitude" value="{{ old('latitude') }}"/>
+                    <input type="hidden" name="longitude" value="{{ old('longitude') }}"/>
                 </div>
 
                 <div class="flex flex-col gap-4 rounded-2xl border border-[#d6e0e4] bg-white p-6 shadow-sm">

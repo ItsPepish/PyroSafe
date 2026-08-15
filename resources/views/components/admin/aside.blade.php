@@ -17,7 +17,7 @@
             Reportes
         </a>
         <a
-            href="#"
+            href="{{ route('admin.establishments.index') }}"
             class="flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-[#dee6e9]/70 transition-colors hover:bg-[#1b313d]/60 hover:text-[#dee6e9]">
             <x-icons.map3 />
             Establecimientos
