@@ -70,4 +70,8 @@ class HomeController extends Controller
             'publications' => $publications
         ]);
     }
+
+    public function acerca() {
+        return view('public.acerca');
+    }
 }

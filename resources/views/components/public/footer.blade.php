@@ -17,7 +17,7 @@
                     <a href="{{ route('reports.create') }}" class="transition-colors hover:text-[#0f7688]">Reportar riesgo</a>
                 </li>
                 <li>
-                    <a href="#" class="transition-colors hover:text-[#0f7688]">Acerca de PyroSafe</a>
+                    <a href="{{ route('acerca') }}" class="transition-colors hover:text-[#0f7688]">Acerca de PyroSafe</a>
                 </li>
             </ul>
         </div>

@@ -16,6 +16,7 @@ Route::get('/info/{publication:slug}', [PublicationController::class, 'show'])->
 Route::get('/reporte', [ReportController::class, 'create'])->name('reports.create');
 Route::post('/reporte', [ReportController::class, 'store'])->middleware('throttle:3,60')->name('reports.store');
 Route::get('/establecimientos', [EstablishmentController::class, 'index'])->name('establishments.index');
+Route::get('/acerca-de', [HomeController::class, 'acerca'])->name('acerca');
 
 Route::get('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'authenticate'])->name('admin.auth');
