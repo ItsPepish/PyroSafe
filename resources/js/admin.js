@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function iniciarApp() {
     confirmDeletePost();
+    adminReportMap();
     adminEstablishmentMap();
 }
 
@@ -45,6 +46,26 @@ function confirmDeletePost() {
             pendingForm.submit();
         }
     })
+}
+
+function adminReportMap() {
+    const mapElement = document.querySelector('[data-admin-report-map]');
+
+    if(!mapElement) {
+        return;
+    }
+
+    const latitude = Number(mapElement.dataset.latitude);
+    const longitude = Number(mapElement.dataset.longitude);
+
+    const map = showMap(mapElement, [latitude, longitude]);
+
+    const marker = L.marker([latitude, longitude]).addTo(map);
+    marker.bindPopup('Ubicación reportada',{
+        closeOnClick: false,
+        autoClose: false,
+        closeButton: false,
+    }).openPopup();
 }
 
 function adminEstablishmentMap() {

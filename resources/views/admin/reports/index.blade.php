@@ -7,6 +7,10 @@
             <span class="text-sm text-[#5e6b73]">{{ $reports->total() }} reportes</span>
         </div>
 
+        @if (session('success'))
+            <p class="rounded-xl border border-[#0f7688]/30 bg-[#0f7688]/8 px-4 py-3 text-center text-sm font-medium text-[#0f7688]">{{ session('success') }}</p>
+        @endif
+
         <div class="overflow-hidden rounded-2xl border border-[#d6e0e4] bg-white">
             <div class="overflow-x-auto">
                 <table class="w-full min-w-205 text-left text-sm">
