@@ -4,10 +4,10 @@
     <section class="bg-[#10222b] text-[#dee6e9]">
         <div class="mx-auto flex max-w-6xl flex-col gap-5 px-4 py-14 sm:px-6">
             <p class="inline-flex w-fit rounded-full bg-[#0f7688]/20 px-3 py-1 text-xs font-medium text-[#0f7688]">Acerca de PyroSafe</p>
-            <h1 class="max-w-2xl text-3xl font-semibold text-balance leading-tight sm:text-4xl">
+            <h1 class="max-w-2xl text-3xl leading-tight font-semibold text-balance sm:text-4xl">
                 Un proyecto de servicio social para cuidar a Tultepec
             </h1>
-            <p class="max-w-2xl text-pretty leading-relaxed text-[#dee6e9]/80">PyroSafe nació como una respuesta ciudadana a una problemática real: las explosiones que ocurren alrededor de Tultepec y la falta de un canal claro para prevenirlas y reportarlas.</p>
+            <p class="max-w-2xl leading-relaxed text-pretty text-[#dee6e9]/80">PyroSafe nació como una respuesta ciudadana a una problemática real: las explosiones que ocurren alrededor de Tultepec y la falta de un canal claro para prevenirlas y reportarlas.</p>
         </div>
     </section>
 
@@ -76,8 +76,7 @@
 
     <section class="bg-[#10222b]">
         <div
-            class="mx-auto flex max-w-6xl flex-col items-start gap-4 px-4 py-14 text-white sm:px-6 sm:flex-row sm:items-center sm:justify-between"
-        >
+            class="mx-auto flex max-w-6xl flex-col items-start gap-4 px-4 py-14 text-white sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <div class="flex flex-col gap-2">
                 <h3 class="text-xl font-semibold">¿Detectaste una situación de riesgo?</h3>
                 <p class="max-w-lg text-sm leading-relaxed text-white/80">Reporta de forma anónima y ayuda a prevenir un accidente en tu comunidad.</p>
