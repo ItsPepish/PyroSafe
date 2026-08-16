@@ -1,58 +1,95 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+![Logo PyroSafe](https://github.com/user-attachments/assets/87a8e095-9531-4737-aa49-561d1ff93fb6)
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+    <img src="https://img.shields.io/badge/Project-Social%20Service-purple">
+    <img src="https://img.shields.io/badge/License-MIT-green">
+    <img src="https://img.shields.io/badge/Laravel-13-red?logo=laravel">
+    <img src="https://img.shields.io/badge/PHP-8.3-blue?logo=php">
+    <img src="https://img.shields.io/badge/MySQL-blue?logo=mysql">
+    <img src="https://img.shields.io/badge/TailwindCSS-4-38BDF8?logo=tailwindcss">
+    <img src="https://img.shields.io/badge/Leaflet-Map-199900?logo=leaflet">
+    <img src="https://img.shields.io/badge/Status-V1%20Functional-success">
 </p>
 
-## About Laravel
+<p align="center">A web platform focused on preventing risks associated with pyrotechnics in Tultepec, State of Mexico.</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## About PyroSafe
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+PyroSafe was developed as part of a community service project aimed at disseminating preventive information regarding fireworks and facilitating access to tools for information and citizen reporting.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The platform is primarily intended for the residents of Tultepec and serves as an informational resource to support risk prevention, the location of authorized sites, and the responsible reporting of potential irregularities.
 
-## Learning Laravel
+## Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Preventive information related to pyrotechnic safety.
+- Citizen reporting of potentially dangerous or irregular situations.
+- Automatic report folio generation.
+- Image uploads as supporting evidence.
+- Interactive map powered by Leaflet.
+- Visualization of authorized or publicly verified pyrotechnic points.
+- Administrative dashboard.
+- Publication management.
+- Category management.
+- Establishment management.
+- Report status management.
+- Image processing and conversion to WebP.
+- Responsive interface for desktop and mobile devices.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Screenshots
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### Home
 
-## Agentic Development
+![PyroSafe Home](https://github.com/user-attachments/assets/3968fc4e-420d-40d2-8256-c70850dd4efb)
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
 
-```bash
-composer require laravel/boost --dev
+### Preventive Information
 
-php artisan boost:install
-```
+![Preventive Information](https://github.com/user-attachments/assets/8e498689-d509-4105-a320-ce6ee2222bd5)
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### Citizen Report
 
-## Contributing
+![Citizen Report](https://github.com/user-attachments/assets/8cee0d97-c949-4814-8b55-0d2a8072342a)
+![Citizen Report](https://github.com/user-attachments/assets/7667fd1d-6890-419c-8de9-182ba4e41d2c)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Interactive Map
 
-## Code of Conduct
+![Interactive Map](https://github.com/user-attachments/assets/f32f0550-76f3-4350-b15e-a1977e0d6e8d)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Admin Dashboard
 
-## Security Vulnerabilities
+![Admin Dashboard](https://github.com/user-attachments/assets/cfa46894-6e42-471e-a6d0-c5115df6c38b)
+![Admin Dashboard](https://github.com/user-attachments/assets/10ae2f5d-c249-4372-b385-06c068de22f7)
+![Admin Dashboard](https://github.com/user-attachments/assets/d617e31c-d387-41da-a0b5-d28f4fa714e5)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Tech Stack
+
+### Backend
+
+- Laravel 13
+- PHP 8.3
+- Eloquent ORM
+- MySQL
+
+### Frontend
+
+- Blade
+- Tailwind CSS 4
+- JavaScript
+- Vite
+- Leaflet
+
+## Disclaimer
+
+PyroSafe is an academic and community service project developed for informational and preventive purposes.
+
+The platform does not replace emergency services, Civil Protection authorities, or other competent institutions.
+
+In case of an emergency, users should contact the appropriate official services.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The source code of PyroSafe is distributed under the MIT License.
+
+Third-party photographs, graphics, and other external assets retain their respective licenses and copyrights.
+
+See `ATTRIBUTIONS.md` for additional information.
