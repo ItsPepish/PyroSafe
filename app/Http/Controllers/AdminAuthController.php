@@ -38,7 +38,7 @@ class AdminAuthController extends Controller
         return redirect('/');
     }
 
-    public function dashboard() {
-        return view('admin.dashboard');
+    public function entry() {
+        return redirect('/admin/reports');
     }
 }
