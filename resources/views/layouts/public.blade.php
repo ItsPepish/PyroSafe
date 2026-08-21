@@ -7,7 +7,7 @@
     @vite (['resources/css/app.css', 'resources/js/app.js'])
     <title>@yield('title') | PyroSafe</title>
 </head>
-<body>
+<body class="flex min-h-screen flex-col bg-white">
     <x-public.header />
 
     <main>
