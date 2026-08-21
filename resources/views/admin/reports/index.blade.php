@@ -1,5 +1,6 @@
 @extends ('layouts.admin')
 
+@section('title', 'Reportes')
 @section ('content')
     <div class="flex flex-col gap-5">
         <div class="flex items-center justify-between">

@@ -1,5 +1,6 @@
 @extends ('layouts.public')
 
+@section('title', 'Establecimientos')
 @section ('content')
     <section class="bg-[#10222b] text-[#dee6e9]">
         <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-16 sm:px-6">
@@ -10,8 +11,8 @@
 
     <section>
         <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-14 sm:px-6">
-            <div class="flex h-120 gap-4">
-                <div class="flex w-120 flex-col gap-4 overflow-auto">
+            <div class="flex flex-col gap-4 md:h-120 md:flex-row">
+                <div class="flex h-70 flex-col gap-4 overflow-auto md:h-full md:w-120">
                     @forelse ($establishments as $establishment)
                         <div
                             data-establishment-card
@@ -36,7 +37,7 @@
                 <div
                     data-public-establishments-map
                     data-establishments='@json($mapEstablishments)'
-                    class="z-0 w-full rounded-2xl border border-[#d6e0e4]"
+                    class="z-0 h-100 rounded-2xl border border-[#d6e0e4] md:size-full"
                     id="map"></div>
             </div>
         </div>

@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 function iniciarApp() {
+    drawerMobile();
     confirmDelete();
     adminReportMap();
     adminEstablishmentMap();
@@ -171,4 +172,46 @@ function adminEstablishmentMap() {
     
         setEstablishmentLocation(latitudeMap, longitudeMap, 'search');
     }
+}
+
+function drawerMobile() {
+    const button = document.querySelector('[data-admin-drawer-button]');
+    const drawer = document.querySelector('[data-admin-drawer]');
+    const panel = document.querySelector('[data-admin-drawer-panel]');
+    const backdrop = document.querySelector('[data-admin-drawer-backdrop]');
+    const closeButton = document.querySelector('[data-admin-drawer-close]');
+
+    if (!button || !drawer || !panel) {
+        return;
+    }
+
+    function openDrawer() {
+        drawer.classList.remove('hidden');
+        requestAnimationFrame(() => {
+            panel.classList.remove('-translate-x-full');
+        });
+        button.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('overflow-hidden');
+    }
+
+    function closeDrawer() {
+        panel.classList.add('-translate-x-full');
+        button.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('overflow-hidden');
+        setTimeout(() => drawer.classList.add('hidden'), 200);
+    }
+
+    button.addEventListener('click', openDrawer);
+    closeButton?.addEventListener('click', closeDrawer);
+    backdrop?.addEventListener('click', closeDrawer);
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !drawer.classList.contains('hidden')) {
+            closeDrawer();
+        }
+    });
+
+    drawer.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeDrawer);
+    });
 }
