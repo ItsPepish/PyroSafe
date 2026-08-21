@@ -1,5 +1,6 @@
 @extends ('layouts.public')
 
+@section('title', 'Establecimientos')
 @section ('content')
     <section class="bg-[#10222b] text-[#dee6e9]">
         <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-16 sm:px-6">

@@ -1,5 +1,6 @@
 @extends ('layouts.public')
 
+@section('title', 'Inicio')
 @section ('content')
     <section class="relative -mt-16 h-screen w-full overflow-hidden">
         <img src="{{ Vite::asset('resources/images/tultepec02.webp') }}" alt="" class="absolute inset-0 size-full object-cover" />

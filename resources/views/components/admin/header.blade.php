@@ -15,7 +15,7 @@
             <span class="sr-only">Abrir menú</span>
         </button>
         <div class="flex flex-col">
-            <h1 class="text-base font-semibold text-[#10222b]">Resumen</h1>
+            <h1 class="text-base font-semibold text-[#10222b]">@yield('title')</h1>
             <p class="text-xs text-[#5e6b73]">Panel administrativo &middot; PyroSafe</p>
         </div>
     </div>
